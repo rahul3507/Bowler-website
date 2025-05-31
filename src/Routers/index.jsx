@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from '../Pages/HomePage';
 import { PublicRoute } from './route-guards';
 import AuthLayout from '../layouts/AuthLayout';
+import SplashScreen from '../Pages/SplashScreen/SplashScreen';
 
 
 
@@ -20,8 +21,9 @@ const AppRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route  element={<PublicRoute/>} />
             <Route  element={<AuthLayout />} >
-              <Route path="/" element={<HomePage />} />
-
+              <Route path="/" element={<HomePage />} >
+                <Route path="/" element={<SplashScreen />} />
+              </Route>
             </Route>
       </Routes>
     </Suspense>
