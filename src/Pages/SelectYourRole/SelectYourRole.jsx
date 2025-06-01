@@ -5,6 +5,9 @@ import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 
+import toast, { Toaster } from 'react-hot-toast';
+
+
 export const SelectYourRole = () => {
   const [selectedRole, setSelectedRole] = useState(null);
   const navigate = useNavigate();
@@ -44,9 +47,9 @@ export const SelectYourRole = () => {
     if (selectedRole) {
       // Navigate to signup page with selected role as state
       navigate("/signup", { state: { selectedRole } });
-      
-    } else {
-      alert("Please select a role before continuing.");
+    } 
+    else {
+      toast.error("Please select a role before continuing.");
     }
   };
 

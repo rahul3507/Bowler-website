@@ -8,6 +8,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "./index.css";
 import AppRoutes from "./Routers";
+import { Toaster } from "react-hot-toast";
+
 
 // Create a QueryClient instance
 const queryClient = new QueryClient({
@@ -32,8 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
         >
           <AppRoutes />
-          
-         
+          <Toaster position="top-center" />
         </BrowserRouter>
       </QueryClientProvider>
     </HelmetProvider>
