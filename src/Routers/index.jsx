@@ -4,6 +4,7 @@ import HomePage from '../Pages/HomePage';
 import { PublicRoute } from './route-guards';
 import AuthLayout from '../layouts/AuthLayout';
 import SplashScreen from '../Pages/SplashScreen/SplashScreen';
+import { SelectYourRole } from '@/Pages/SelectYourRole/SelectYourRole';
 
 
 
@@ -23,6 +24,7 @@ const AppRoutes = () => {
             <Route  element={<AuthLayout />} >
               <Route path="/" element={<HomePage />} >
                 <Route path="/" element={<SplashScreen />} />
+                <Route path="/selectyourrole" element={<SelectYourRole />} />
               </Route>
             </Route>
       </Routes>

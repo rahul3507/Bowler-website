@@ -23,7 +23,7 @@ const SplashScreen = () => {
         </div>
 
         <Link
-          to="/get-started"
+          to="/selectyourrole"
           className="inline-block bg-button-bg text-button-text font-medium py-3 md:py-4 px-8 mx-1 rounded-md text-sm md:text-base lg:text-lg w-full max-w-md mb-6 hover:bg-opacity-90 transition-all"
         >
           Get Started
