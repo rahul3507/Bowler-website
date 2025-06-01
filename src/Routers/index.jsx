@@ -8,6 +8,7 @@ import { SelectYourRole } from '@/Pages/SelectYourRole/SelectYourRole';
 import SignUp from '@/Pages/Authentication/SignUp';
 import SignIn from '@/Pages/Authentication/SignIn';
 import BackgroundPage from '../Pages/BackgroundPage';
+import Dashboard from '@/Pages/Dashboard/Dashboard';
 
 
 
@@ -31,6 +32,7 @@ const AppRoutes = () => {
                 <Route path="/selectyourrole" element={<SelectYourRole />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
+                <Route path="/dashboard" element={<Dashboard />} />
               </Route>
             </Route>
       </Routes>

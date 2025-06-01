@@ -2,11 +2,11 @@ import { useState } from "react"
 
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
 
-  
+  const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
     handle: "",
@@ -21,7 +21,7 @@ export default function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
-
+    navigate("/dashboard");
     // Handle form submission logic here with selectedRole
   }
 
@@ -63,6 +63,7 @@ export default function SignIn() {
         </div>
 
         <Button
+        
           type="submit"
           className="mt-4 w-full  bg-button-bg py-5 text-button-text hover:bg-button-bg/80 transition-colors"
         >
