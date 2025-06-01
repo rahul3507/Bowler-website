@@ -1,10 +1,11 @@
-
-
 import { useState } from "react"
+import { useLocation, Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
-import Link from "next/link"
 
-export default function SignUpForm() {
+export default function SignUp() {
+  const location = useLocation();
+  const selectedRole = location.state?.selectedRole;
+  
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -21,8 +22,25 @@ export default function SignUpForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
-    // Handle form submission logic here
+    console.log("User Role:", selectedRole)
+    // Handle form submission logic here with selectedRole
   }
+
+  // Determine if we should hide Last Name field
+  const shouldHideLastName = selectedRole === "bowling-center" || selectedRole === "manufacturer"
+  
+  // Determine First Name label and placeholder
+  const getFirstNameConfig = () => {
+    if (selectedRole === "bowling-center") {
+      return { label: "Center Name", placeholder: "Center Name" }
+    }
+    if (selectedRole === "manufacturer") {
+      return { label: "Manufacturer Name", placeholder: "Manufacturer Name" }
+    }
+    return { label: "First Name", placeholder: "First Name" }
+  }
+
+  const firstNameConfig = getFirstNameConfig()
 
   return (
     <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
@@ -31,31 +49,33 @@ export default function SignUpForm() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="firstName" className="mb-1 block text-[#000000]">
-            First Name
+            {firstNameConfig.label}
           </label>
           <Input
             id="firstName"
             name="firstName"
-            placeholder="First Name"
+            placeholder={firstNameConfig.placeholder}
             value={formData.firstName}
             onChange={handleChange}
             className="rounded-full border-[#e8e8e8] px-4 py-2"
           />
         </div>
 
-        <div>
-          <label htmlFor="lastName" className="mb-1 block text-[#000000]">
-            Last Name
-          </label>
-          <Input
-            id="lastName"
-            name="lastName"
-            placeholder="Last Name"
-            value={formData.lastName}
-            onChange={handleChange}
-            className="rounded-full border-[#e8e8e8] px-4 py-2"
-          />
-        </div>
+        {!shouldHideLastName && (
+          <div>
+            <label htmlFor="lastName" className="mb-1 block text-[#000000]">
+              Last Name
+            </label>
+            <Input
+              id="lastName"
+              name="lastName"
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
+              className="rounded-full border-[#e8e8e8] px-4 py-2"
+            />
+          </div>
+        )}
 
         <div>
           <label htmlFor="handle" className="mb-1 block text-[#000000]">
@@ -111,7 +131,7 @@ export default function SignUpForm() {
 
       <div className="mt-6 text-center text-[#555555]">
         Already have an account?{" "}
-        <Link href="/signin" className="text-[#1e2d5e] hover:underline">
+        <Link to="/signin" className="text-[#1e2d5e] hover:underline">
           Sign In
         </Link>
       </div>

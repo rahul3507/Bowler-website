@@ -5,6 +5,7 @@ import { PublicRoute } from './route-guards';
 import AuthLayout from '../layouts/AuthLayout';
 import SplashScreen from '../Pages/SplashScreen/SplashScreen';
 import { SelectYourRole } from '@/Pages/SelectYourRole/SelectYourRole';
+import SignUp from '@/Pages/Authentication/SignUp';
 
 
 
@@ -25,6 +26,7 @@ const AppRoutes = () => {
               <Route path="/" element={<HomePage />} >
                 <Route path="/" element={<SplashScreen />} />
                 <Route path="/selectyourrole" element={<SelectYourRole />} />
+                <Route path="/signup" element={<SignUp />} />
               </Route>
             </Route>
       </Routes>

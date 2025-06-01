@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
@@ -6,6 +7,7 @@ import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 
 export const SelectYourRole = () => {
   const [selectedRole, setSelectedRole] = useState(null);
+  const navigate = useNavigate();
 
   const roles = [
     {
@@ -37,14 +39,17 @@ export const SelectYourRole = () => {
       badge: "Premium",
     },
   ];
+
   const handleContinue = () => {
     if (selectedRole) {
-      // Navigate to the next step or perform an action based on the selected role
-      console.log("Selected Role:", selectedRole);
+      // Navigate to signup page with selected role as state
+      navigate("/signup", { state: { selectedRole } });
+      
     } else {
       alert("Please select a role before continuing.");
     }
   };
+
   return (
     <div className="bg-transparent  flex flex-row justify-center w-full">
       <div className="flex flex-col w-full max-w-[800px] items-center gap-6 ">
@@ -121,6 +126,7 @@ export const SelectYourRole = () => {
           </Button>
         </div>
       </div>
+      
     </div>
   );
 };
