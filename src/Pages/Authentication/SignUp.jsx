@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useLocation, Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button";
 
 export default function SignUp() {
   const location = useLocation();
@@ -43,12 +44,12 @@ export default function SignUp() {
   const firstNameConfig = getFirstNameConfig()
 
   return (
-    <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
-      <h1 className="mb-6 text-center text-2xl font-bold text-[#000000]">Sign Up</h1>
+    <div className="w-full max-w-md rounded-lg bg-transparent p-8 shadow-xl border">
+      <h1 className="mb-6 text-center text-2xl font-bold text-primary-heading">Sign Up</h1>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 text-base md:text-lg">
         <div>
-          <label htmlFor="firstName" className="mb-1 block text-[#000000]">
+          <label htmlFor="firstName" className="mb-1 block text-primary-heading">
             {firstNameConfig.label}
           </label>
           <Input
@@ -57,13 +58,14 @@ export default function SignUp() {
             placeholder={firstNameConfig.placeholder}
             value={formData.firstName}
             onChange={handleChange}
-            className="rounded-full border-[#e8e8e8] px-4 py-2"
+            className="rounded-full  text-tertiary py-5 px-4"
+            required
           />
         </div>
 
         {!shouldHideLastName && (
           <div>
-            <label htmlFor="lastName" className="mb-1 block text-[#000000]">
+            <label htmlFor="lastName" className="mb-1 block text-primary-heading">
               Last Name
             </label>
             <Input
@@ -72,13 +74,14 @@ export default function SignUp() {
               placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
-              className="rounded-full border-[#e8e8e8] px-4 py-2"
+              className="rounded-full  text-tertiary px-4 py-5"
+
             />
           </div>
         )}
 
         <div>
-          <label htmlFor="handle" className="mb-1 block text-[#000000]">
+          <label htmlFor="handle" className="mb-1 block text-primary-heading">
             Handle
           </label>
           <Input
@@ -87,12 +90,13 @@ export default function SignUp() {
             placeholder="username"
             value={formData.handle}
             onChange={handleChange}
-            className="rounded-full border-[#e8e8e8] px-4 py-2"
+            className="rounded-full  text-tertiary px-4 py-5"
+            required
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="mb-1 block text-[#000000]">
+          <label htmlFor="email" className="mb-1 block text-primary-heading">
             Email
           </label>
           <Input
@@ -102,12 +106,13 @@ export default function SignUp() {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="rounded-full border-[#e8e8e8] px-4 py-2"
+            className="rounded-full  text-tertiary px-4 py-5"
+            required
           />
         </div>
 
         <div>
-          <label htmlFor="password" className="mb-1 block text-[#000000]">
+          <label htmlFor="password" className="mb-1 block text-primary-heading">
             Password
           </label>
           <Input
@@ -117,21 +122,22 @@ export default function SignUp() {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="rounded-full border-[#e8e8e8] px-4 py-2"
+            className="rounded-full  text-tertiary px-4 py-5"
+            required
           />
         </div>
 
-        <button
+        <Button
           type="submit"
-          className="mt-4 w-full rounded-full bg-[#8bc342] py-3 text-white hover:bg-[#8bc342]/90 transition-colors"
+          className="mt-4 w-full  bg-button-bg py-5 text-button-text hover:bg-button-bg/80 transition-colors"
         >
           Sign Up
-        </button>
+        </Button>
       </form>
 
-      <div className="mt-6 text-center text-[#555555]">
+      <div className="mt-6 text-center md:text-left text-tertiary text-base">
         Already have an account?{" "}
-        <Link to="/signin" className="text-[#1e2d5e] hover:underline">
+        <Link to="/signin" className="text-primary hover:underline">
           Sign In
         </Link>
       </div>
