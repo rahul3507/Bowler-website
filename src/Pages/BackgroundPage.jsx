@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router-dom'
 
 const BackgroundPage = () => {
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12">
+    <main className="min-h-screen w-full bg-white flex flex-col items-center justify-center ">
       
       <Outlet/>
       
