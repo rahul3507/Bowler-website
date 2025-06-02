@@ -1,4 +1,4 @@
-"use client";;
+
 import { cn } from "@/lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -6,10 +6,10 @@ import { IconMenu2, IconX } from "@tabler/icons-react";
 
 const SidebarContext = createContext(undefined);
 
-export const useSidebar = () => {
+export const Sidebar2 = () => {
   const context = useContext(SidebarContext);
   if (!context) {
-    throw new Error("useSidebar must be used within a SidebarProvider");
+    throw new Error("Sidebar must be used within a SidebarProvider");
   }
   return context;
 };
@@ -59,7 +59,7 @@ export const DesktopSidebar = ({
   children,
   ...props
 }) => {
-  const { open, setOpen, animate } = useSidebar();
+  const { open, setOpen, animate } = Sidebar2();
   return (
     <>
       <motion.div
@@ -84,12 +84,12 @@ export const MobileSidebar = ({
   children,
   ...props
 }) => {
-  const { open, setOpen } = useSidebar();
+  const { open, setOpen, animate } = Sidebar2();
   return (
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
+          "h-10 px-0 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
         )}
         {...props}>
         <div className="flex justify-end z-20 w-full">
@@ -101,7 +101,9 @@ export const MobileSidebar = ({
           {open && (
             <motion.div
               initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
+              animate={{ x: 0, opacity: 1 ,
+                width: animate ? (open ? "200px" : "60px") : "200px",
+              }}
               exit={{ x: "-100%", opacity: 0 }}
               transition={{
                 duration: 0.3,
@@ -130,7 +132,7 @@ export const SidebarLink = ({
   className,
   ...props
 }) => {
-  const { open, animate } = useSidebar();
+  const { open, animate } = Sidebar2();
   return (
     <a
       href={link.href}

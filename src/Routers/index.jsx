@@ -11,6 +11,10 @@ import BackgroundPage from '../Pages/BackgroundPage';
 
 import Dashboard from '@/Pages/Dashboard/Dashboard';
 import HomePage from '@/Pages/Homepage/HomePage';
+import Overview from '@/Pages/Overview/Overview';
+import MyTeams from '@/Pages/MyTeams/MyTeams';
+import Analytics from '@/Pages/Analytics/Analytics';
+import Tournaments from '@/Pages/Tournaments/Tournaments';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -31,6 +35,10 @@ const AppRoutes = () => {
               <Route path="signin" element={<SignIn />} />
               <Route path="dashboard" element={<Dashboard/>}>
                 <Route path="home" element={<HomePage />} />
+                <Route path="overview" element={<Overview />} />
+                <Route path="myteams" element={<MyTeams />} />
+                <Route path="analytics" element={<Analytics />} />
+                <Route path="tournaments" element={<Tournaments />} />
               </Route>
             </Route>
           </Route>

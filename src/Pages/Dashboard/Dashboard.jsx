@@ -1,21 +1,34 @@
-"use client";
+
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar";
-import { AiOutlineHome } from "react-icons/ai";
-import {
-  IconArrowLeft,
-  IconBrandTabler,
-  IconSettings,
-  IconUserBolt,
-} from "@tabler/icons-react";
+import { CiHome } from "react-icons/ci";
+import { RxDashboard } from "react-icons/rx";
+import { LuUsers } from "react-icons/lu";
+
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { href, NavLink, Outlet, useLocation } from "react-router-dom";
+import {  NavLink, Outlet, useLocation } from "react-router-dom";
+import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
 
   export default function Dashboard() {
     const location = useLocation();
     const isHomeActive = () => {
       return (location.pathname.includes('/dashboard/home'))       
+      };
+    const isOverviewActive = () => {
+      return (location.pathname.includes('/dashboard/overview'))       
+      };
+
+    const isMyTeamsActive = () => {
+      return (location.pathname.includes('/dashboard/myteams'))       
+      };
+    
+    const isAnalyticsActive = () => {
+      return (location.pathname.includes('/dashboard/analytics'))       
+      };
+
+    const isTournamentsActive = () => {
+      return (location.pathname.includes('/dashboard/tournaments'))       
       };
 
   // const links = [
@@ -54,39 +67,117 @@ import { href, NavLink, Outlet, useLocation } from "react-router-dom";
   return (
     <div
       className={cn(
-        " flex w-full  flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-gray-100 md:flex-row dark:border-white dark:bg-neutral-800",
+        " flex w-full  flex-1 flex-col overflow-hidden rounded-md  border-neutral-200 bg-gray-100 md:flex-row dark:border-white dark:bg-neutral-800",
         // for your use case, use `h-screen` instead of `h-[60vh]`
         "h-[60vh]"
       )}>
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between bg-sidebar text-white h-screen gap-10">
+        <SidebarBody className="justify-between px-1 md:px-4 bg-sidebar text-white h-screen gap-10">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
-            <div className="my-6 ">
+            <div className="mb-6 mt-0 md:mt-3 ">
               {open ? <Logo /> : <LogoIcon />}
             </div>
             <hr className="w-full text-white"/>
             <div className="mt-8 text-white flex flex-col gap-2">
-              {/* {links.map((link, idx) => (
-                <SidebarLink key={idx} link={link} />
-              ))} */}
               <div>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-sm md:text-base">
                 
                   <li>
                     <NavLink
-                      to="/dashboard/home"
+                      to="home"
                       className={() =>
-                        `block py-3 px-4 font-medium transition-colors rounded-lg ${
+                        ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg  ${
                           isHomeActive()
-                            ? "bg-button-bg text-white"
-                            : "text-button-text hover:bg-button-bg "
+                            ? "bg-button-bg  "
+                            : "bg-transparent  hover:bg-button-bg/45 "
                         }`
                       }
                     >
-                      <AiOutlineHome />
-                      Home
+                     {!open ? <CiHome  className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
+                                                                          <CiHome  className="w-6 h-6"/>
+                                                                          Home
+                                                                          </div>
+                                                                          }
                     </NavLink>
                   </li>
+
+                  <li>
+                    <NavLink
+                      to="/dashboard/myteams"
+                      className={() =>
+                        ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isMyTeamsActive()
+                            ? "bg-button-bg py-0 "
+                            : "bg-transparent  hover:bg-button-bg/45 "
+                        }`
+                      }
+                    >
+                     {!open ? <RxDashboard   className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
+                                                                          <RxDashboard   className="w-6 h-6"/>
+                                                                          Overview
+                                                                          </div>
+                                                                          }
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to="/dashboard/overview"
+                      className={() =>
+                        ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isOverviewActive()
+                            ? "bg-button-bg py-0 "
+                            : "bg-transparent  hover:bg-button-bg/45 "
+                        }`
+                      }
+                    >
+                     {!open ? <LuUsers className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
+                                                                          <LuUsers className="w-6 h-6"/>
+                                                                            My Teams
+                                                                          </div>
+                                                                          }
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to="/dashboard/analytics"
+                      className={() =>
+                        ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isAnalyticsActive()
+                            ? "bg-button-bg py-0 "
+                            : "bg-transparent  hover:bg-button-bg/45 "
+                        }`
+                      }
+                    >
+                     {!open ? <ChartColumn className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
+                                                                          <ChartColumn className="w-6 h-6"/>
+                                                                            Analytics
+                                                                          </div>
+                                                                          }
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to="/dashboard/tournaments"
+                      className={() =>
+                        ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isTournamentsActive()
+                            ? "bg-button-bg py-0 "
+                            : "bg-transparent  hover:bg-button-bg/45 "
+                        }`
+                      }
+                    >
+                     {!open ? <Calendar className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
+                                                                          <Calendar className="w-6 h-6"/>
+                                                                            Tournaments
+                                                                          </div>
+                                                                          }
+                    </NavLink>
+                  </li>
+
+
                 </ul>
               </div>
             </div>
@@ -119,11 +210,15 @@ export const Logo = () => {
       href="#"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-white">
       <div
-        className="h-6 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-black dark:bg-white" />
+        className=" shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-transparent dark:bg-white" />
+        <div className="h-9 w-9 md:h-15 md:w-15 shrink-0 rounded-full bg-transparent">
+          <img src="/Bowling-logo.svg" alt="" />
+        </div>
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="font-medium text-lg md:text-xl whitespace-pre text-white dark:text-white">
+        className="font-medium text-base md:text-xl whitespace-pre text-white dark:text-white">
+
         Bowlersnetwork
       </motion.span>
     </a>
@@ -135,7 +230,9 @@ export const LogoIcon = () => {
       href="#"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm  font-normal text-white">
       <div
-        className="h-6 w-6 shrink-0 rounded-tl-lg rounded-tr-sm rounded-br-lg rounded-bl-sm bg-white dark:bg-white" />
+        className="h-7 w-7 shrink-0 rounded-full   rounded-bl-sm bg-transparent" >
+          <img src="/Bowling-logo.svg" alt="" />
+      </div>
     </a>
   );
 };
