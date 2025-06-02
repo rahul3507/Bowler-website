@@ -9,11 +9,8 @@ import SignUp from '@/Pages/Authentication/SignUp';
 import SignIn from '@/Pages/Authentication/SignIn';
 import BackgroundPage from '../Pages/BackgroundPage';
 
-import Dashboard from '@/Pages/Dashboard/Sidebar';
-
-
-
-
+import Dashboard from '@/Pages/Dashboard/Dashboard';
+import HomePage from '@/Pages/Homepage/HomePage';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -22,20 +19,22 @@ const AppRoutes = () => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
-
   return (
     <Suspense fallback={<BackgroundPage/>}>
       <Routes location={location} key={location.pathname}>
-        <Route  element={<PublicRoute/>} />
-            <Route  element={<AuthLayout />} >
-              <Route path="/" element={<BackgroundPage />} >
-                <Route path="/" element={<SplashScreen />} />
-                <Route path="/selectyourrole" element={<SelectYourRole />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/signin" element={<SignIn />} />
-                <Route path="/dashboard" element={<Dashboard/>} />
+        <Route element={<PublicRoute/>}>
+          <Route element={<AuthLayout />}>
+            <Route path="/" element={<BackgroundPage />}>
+              <Route index element={<SplashScreen />} />
+              <Route path="selectyourrole" element={<SelectYourRole />} />
+              <Route path="signup" element={<SignUp />} />
+              <Route path="signin" element={<SignIn />} />
+              <Route path="dashboard" element={<Dashboard/>}>
+                <Route path="home" element={<HomePage />} />
               </Route>
             </Route>
+          </Route>
+        </Route>
       </Routes>
     </Suspense>
   )
