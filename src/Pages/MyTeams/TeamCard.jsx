@@ -8,10 +8,10 @@ function TeamCard({ name, members, time, img }) {
       <div className="flex items-center gap-4">
         <img src={img} alt={name} className="w-12 h-12 rounded-full" />
         <div>
-          <h3 className="font-bold text-primary">{name}</h3>
+          <h3 className="font-bold text-base md:text-xl lg:text-2xl text-primary">{name}</h3>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span className="text-blue-500">{members} Members</span>
-            <span>Created {time}</span>
+            <span className="text-blue-500 text-xs md:text-base">{members} Members</span>
+            <span className='text-secondary text-xs md:text-base'>Created {time}</span>
           </div>
         </div>
       </div>
