@@ -15,6 +15,7 @@ import Overview from '@/Pages/Overview/Overview';
 import MyTeams from '@/Pages/MyTeams/MyTeams';
 import Analytics from '@/Pages/Analytics/Analytics';
 import Tournaments from '@/Pages/Tournaments/Tournaments';
+import Messages from '@/Pages/Messages/Messages';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -39,6 +40,7 @@ const AppRoutes = () => {
                 <Route path="myteams" element={<MyTeams />} />
                 <Route path="analytics" element={<Analytics />} />
                 <Route path="tournaments" element={<Tournaments />} />
+                <Route path="messages" element={<Messages />} />
               </Route>
             </Route>
           </Route>

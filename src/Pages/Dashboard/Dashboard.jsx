@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar";
 import { CiHome } from "react-icons/ci";
 import { RxDashboard } from "react-icons/rx";
-import { LuUsers } from "react-icons/lu";
+import { LuMessageCircleMore, LuUsers } from "react-icons/lu";
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -30,6 +30,9 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
     const isTournamentsActive = () => {
       return (location.pathname.includes('/dashboard/tournaments'))       
       };
+    const isMessagesActive = () => {
+      return (location.pathname.includes('/dashboard/messages'))
+    };
 
   // const links = [
   //   {
@@ -115,6 +118,25 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
                      {!open ? <RxDashboard   className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
                                                                           <RxDashboard   className="w-6 h-6"/>
                                                                           Overview
+                                                                          </div>
+                                                                          }
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to="/dashboard/messages"
+                      className={() =>
+                        ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isMessagesActive()
+                            ? "bg-button-bg py-0 "
+                            : "bg-transparent  hover:bg-button-bg/45 "
+                        }`
+                      }
+                    >
+                     {!open ? <LuMessageCircleMore className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
+                                                                          <LuMessageCircleMore className="w-6 h-6"/>
+                                                                            Messages
                                                                           </div>
                                                                           }
                     </NavLink>

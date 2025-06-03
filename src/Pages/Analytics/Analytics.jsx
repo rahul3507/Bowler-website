@@ -104,7 +104,7 @@ const OverviewActivities =[
 ]
 const Analytics = () => {
   return (
-    <div className="flex-1 overflow-auto">
+    <div className="flex-1 h-screen overflow-y-auto">
         {/* Header */}
         <div className="bg-white border-b border-[#e8e9e6] p-6">
           <div className="flex flex-col md:flex-row  justify-center md:justify-between  items-center md:items-start ">
