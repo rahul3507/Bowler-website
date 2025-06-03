@@ -67,12 +67,12 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
   return (
     <div
       className={cn(
-        " flex w-full  flex-1 flex-col overflow-hidden rounded-md  border-neutral-200 bg-gray-100 md:flex-row dark:border-white dark:bg-neutral-800",
+        " flex w-full  flex-1 flex-col overflow-hidden rounded-md  border-neutral-200 bg-white md:flex-row dark:border-white dark:bg-neutral-800",
         // for your use case, use `h-screen` instead of `h-[60vh]`
         "h-[60vh]"
       )}>
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between px-1 md:px-4 bg-sidebar text-white h-screen gap-10">
+        <SidebarBody className="justify-between px-1 md:px-4 bg-sidebar text-white h-screen fixed gap-10">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             <div className="mb-6 mt-0 md:mt-3 ">
               {open ? <Logo /> : <LogoIcon />}
