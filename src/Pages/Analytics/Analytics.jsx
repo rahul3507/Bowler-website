@@ -23,6 +23,34 @@ const gameScores = [
   { game: "May", score: 195 },
 ]
 
+const AchievementsData =[
+  {
+    title: "Total Achievements",
+    icon: <Trophy className="w-5 md:w-6 md:h-6  h-5 text-lime-400" />,
+    value: "24/100",
+    description: "24% of all achievements unlocked",
+  },
+  
+  {
+    title: "Achievement Points",
+    icon: <TrendingUp className="w-5 md:w-6 md:h-6  h-5 text-custom-red" />,
+    value: "1,205",
+    description: "+12 from last month",
+  },
+  {
+    title: "Ranking",
+    icon: <Target className="w-5 md:w-6 md:h-6  h-5 text-custom-red" />,
+    value: "Top 15%",
+    description: "Among all bowlers in your area",
+  },
+  {
+    title: "Recent Unlocks",
+    icon: <Calendar className="w-5 md:w-6 md:h-6  h-5 text-custom-red" />,
+    value: "3",
+    description: "Upcoming tournaments this month",
+  },
+]
+
 const recentActivities = [
   {
     type: "achievement",
@@ -49,6 +77,25 @@ const recentActivities = [
     icon: <Trophy className="w-5 md:w-7 md:h-7  h-5 text-lime-400" />,
   },
 ]
+
+const OverviewActivities =[
+  {
+    title: "Average",
+    score: 187,
+  },
+  {
+    title: "High Game",
+    score: 210,
+  },
+  {
+    title: "Strike %",
+    score: "42%",
+  },
+  {
+    title: "Spare %",
+    score: "68%",
+  },
+]
 const Analytics = () => {
   return (
     <div className="flex-1 overflow-auto">
@@ -71,66 +118,23 @@ const Analytics = () => {
         <div className="p-6 space-y-6">
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-gray-200 dark:border-gray-700">
-              <CardContent className="px-6 py-0">
-                <div className="flex items-center justify-between mb-4">
-                  <p className="text-base md:text-lg font-semibold text-primary">Total Achievements</p>
-                  <div className=" bg-transparent rounded-lg">
-                    <Trophy className="w-5 md:w-6 md:h-6  h-5 text-lime-400" />
+            { AchievementsData.map((achievement, index) => (
+              <Card key={index} className="border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                <CardContent className="px-6 py-0">
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-base md:text-lg font-semibold text-primary">{achievement.title}</p>
+                    <div className=" bg-transparent rounded-lg">
+                      {achievement.icon}
+                    </div>
                   </div>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xl md:text-2xl mb-2 font-semibold md:font-bold text-primary-heading">24/100</p>
-                  <p className="text-xs md:text-base text-secondary">24% of all achievements unlocked</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-gray-200 dark:border-gray-700">
-              <CardContent className="px-6 py-0">
-                <div className="flex items-center justify-between mb-4">
-                  <p className="text-base md:text-lg font-semibold text-primary">Achievement Points</p>
-                  <div className=" bg-transparent rounded-lg">
-                    <TrendingUp className="w-5 md:w-6 md:h-6  h-5 text-custom-red" />
+                  <div className="space-y-1">
+                    <p className="text-xl md:text-2xl mb-2 font-semibold md:font-bold text-primary-heading">{achievement.value}</p>
+                    <p className="text-xs md:text-base text-secondary">{achievement.description}</p>
                   </div>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xl md:text-2xl mb-2 font-semibold md:font-bold text-primary-heading">1,205</p>
-                  <p className="text-xs md:text-base text-secondary">+12 from last month</p>
-                </div>
-              </CardContent>
-            </Card>
-
-
-            <Card className="border-gray-200 dark:border-gray-700">
-              <CardContent className="px-6 py-0">
-                <div className="flex items-center justify-between mb-4">
-                  <p className="text-base md:text-lg font-semibold text-primary">Ranking</p>
-                  <div className=" bg-transparent rounded-lg">
-                    <Target className="w-5 md:w-6 md:h-6  h-5 text-custom-red" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xl md:text-2xl mb-2 font-semibold md:font-bold text-primary-heading">Top 15%</p>
-                  <p className="text-xs md:text-base text-secondary">Among all bowlers in your area</p>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-gray-200 dark:border-gray-700">
-              <CardContent className="px-6 py-0">
-                <div className="flex items-center justify-between mb-4">
-                  <p className="text-base md:text-lg font-semibold text-primary">Recent Unlocks</p>
-                  <div className=" bg-transparent rounded-lg">
-                    <Calendar className="w-5 md:w-6 md:h-6  h-5 text-custom-red" />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xl md:text-2xl mb-2 font-semibold md:font-bold text-primary-heading">3</p>
-                  <p className="text-xs md:text-base text-secondary">Upcoming tournaments this month</p>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
+           
             
           </div>
 
@@ -184,9 +188,9 @@ const Analytics = () => {
                 <p className="text-xs md:text-sm text-secondary">Your latest actions across the platform</p>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="space-y-4 ">
                   {recentActivities.map((activity, index) => (
-                    <div key={index} className="flex items-start p-4 border rounded-lg border-gray-200 justify-baseline space-x-3">
+                    <div key={index} className="flex items-start p-4 border rounded-lg border-gray-200 justify-baseline space-x-3 cursor-pointer hover:shadow-md transition-shadow duration-200">
                       <div className="w-9 md:w-12 md:h-12 h-9  bg-lime-50 rounded-full flex items-center justify-center flex-shrink-0">
                         {activity.icon}
                       </div>
@@ -229,30 +233,17 @@ const Analytics = () => {
 
           {/* Bottom Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <Card className="border-[#e8e9e6]">
-              <CardContent className="p-6 text-center">
-                <p className="text-sm text-[#707669] mb-2">Average</p>
-                <p className="text-3xl font-bold text-[#141b34]">187</p>
-              </CardContent>
-            </Card>
-            <Card className="border-[#e8e9e6]">
-              <CardContent className="p-6 text-center">
-                <p className="text-sm text-[#707669] mb-2">High Game</p>
-                <p className="text-3xl font-bold text-[#141b34]">210</p>
-              </CardContent>
-            </Card>
-            <Card className="border-[#e8e9e6]">
-              <CardContent className="p-6 text-center">
-                <p className="text-sm text-[#707669] mb-2">Strike %</p>
-                <p className="text-3xl font-bold text-[#141b34]">42%</p>
-              </CardContent>
-            </Card>
-            <Card className="border-[#e8e9e6]">
-              <CardContent className="p-6 text-center">
-                <p className="text-sm text-[#707669] mb-2">Spare %</p>
-                <p className="text-3xl font-bold text-[#141b34]">68%</p>
-              </CardContent>
-            </Card>
+            {
+              OverviewActivities.map((activity, index) => (
+                <Card key={index} className="border-gray-200 cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                  <CardContent className=" text-center">
+                    <p className="text-sm md:text-base text-secondary mb-2">{activity.title}</p>
+                    <p className="text-xl md:text-3xl  font-semibold md:font-bold text-primary">{activity.score}</p>
+                  </CardContent>
+                </Card>
+              ))
+            }
+            
           </div>
         </div>
       </div>
