@@ -218,12 +218,12 @@ const Analytics = () => {
           </div>
 
           {/* Game Scores Chart */}
-          <Card className="border-[#e8e9e6]">
+          <Card className="border-gray-200">
             <CardHeader>
-              <CardTitle className="text-[#141b34]">Your game scores over your last 10 games</CardTitle>
+              <CardTitle className="text-secondary text-sm md:text-base">Your game scores over your last 10 games</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-80 w-full">
+              <div className="h-80 w-full md:w-2/3 lg:w-1/2 xl:w-5/12">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={gameScores}>
                     <XAxis dataKey="game" axisLine={false} tickLine={false} tick={{ fill: "#9a9ca2", fontSize: 12 }} />
@@ -233,7 +233,7 @@ const Analytics = () => {
                       tick={{ fill: "#9a9ca2", fontSize: 12 }}
                       domain={[150, 250]}
                     />
-                    <Bar dataKey="score"  fill="#1e2d5e" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="score"  fill="#1e2d5e" radius={[4, 4, 0, 0]} barSize={30} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
