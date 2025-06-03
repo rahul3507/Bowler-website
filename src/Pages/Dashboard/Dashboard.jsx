@@ -106,10 +106,10 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
 
                   <li>
                     <NavLink
-                      to="/dashboard/myteams"
+                      to="/dashboard/overview"
                       className={() =>
                         ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
-                          isMyTeamsActive()
+                          isOverviewActive()
                             ? "bg-button-bg py-0 "
                             : "bg-transparent  hover:bg-button-bg/45 "
                         }`
@@ -144,10 +144,10 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
 
                   <li>
                     <NavLink
-                      to="/dashboard/overview"
+                      to="/dashboard/myteams"
                       className={() =>
                         ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
-                          isOverviewActive()
+                          isMyTeamsActive()
                             ? "bg-button-bg py-0 "
                             : "bg-transparent  hover:bg-button-bg/45 "
                         }`
