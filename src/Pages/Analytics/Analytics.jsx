@@ -4,14 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
 import {  Trophy, Calendar, Search, TrendingUp, Target } from "lucide-react"
-// import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar } from "recharts"
+ import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Tooltip, Legend, CartesianGrid } from "recharts"
 
 const performanceData = [
   { month: "Jan", score: 175, average: 210 },
   { month: "Feb", score: 180, average: 215 },
-  { month: "Mar", score: 185, average: 220 },
-  { month: "Apr", score: 190, average: 225 },
-  { month: "May", score: 195, average: 230 },
+  { month: "Mar", score: 244, average: 190 },
+  { month: "Apr", score: 190, average: 185 },
+  { month: "May", score: 220, average: 200 },
   { month: "Jun", score: 200, average: 240 },
 ]
 
@@ -52,6 +52,12 @@ const AchievementsData =[
 ]
 
 const recentActivities = [
+  {
+    type: "achievement",
+    title: "Earned Achievement: 200+ Game",
+    time: "3 days ago",
+    icon: <Trophy className="w-5 md:w-7 md:h-7  h-5 text-lime-400" />,
+  },
   {
     type: "achievement",
     title: "Earned Achievement: 200+ Game",
@@ -138,29 +144,32 @@ const Analytics = () => {
             
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3  gap-6">
             {/* Performance Overview */}
             <Card className="lg:col-span-2 border-gray-200">
-              {/* <CardHeader>
-                <CardTitle className="text-[#141b34]">Performance Overview</CardTitle>
-                <p className="text-sm text-[#707669]">Your bowling performance over the last 6 months</p>
+              <CardHeader>
+                <CardTitle className="text-primary-heading text-xl md:text-2xl">Performance Overview</CardTitle>
+                <p className="text-xs md:text-sm text-secondary">Your bowling performance over the last 6 months</p>
               </CardHeader>
               <CardContent>
-                <div className="h-80">
+                <div className="h-60 md:h-80 lg:h-96 xl:h-[470px] ">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={performanceData}>
+                      <CartesianGrid strokeDasharray="3 3" />
                       <XAxis
                         dataKey="month"
-                        axisLine={false}
-                        tickLine={false}
+                        axisLine={true}
+                        tickLine={true}
                         tick={{ fill: "#9a9ca2", fontSize: 12 }}
                       />
                       <YAxis
-                        axisLine={false}
-                        tickLine={false}
+                        axisLine={true}
+                        tickLine={true}
                         tick={{ fill: "#9a9ca2", fontSize: 12 }}
                         domain={[150, 250]}
                       />
+                      <Tooltip />
+                      <Legend />
                       <Line
                         type="monotone"
                         dataKey="score"
@@ -178,19 +187,19 @@ const Analytics = () => {
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
-              </CardContent> */}
+              </CardContent>
             </Card>
 
             {/* Recent Activity */}
-            <Card className="border-gray-200">
+            <Card className="border-gray-200 h-full">
               <CardHeader>
                 <CardTitle className="text-primary-heading text-xl md:text-2xl font-semibold md:font-bold ">Recent Activity</CardTitle>
                 <p className="text-xs md:text-sm text-secondary">Your latest actions across the platform</p>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4 ">
+                <div className="space-y-4 overflow-y-auto h-70 md:h-96 lg:h-96 xl:h-[470px] ">
                   {recentActivities.map((activity, index) => (
-                    <div key={index} className="flex items-start p-4 border rounded-lg border-gray-200 justify-baseline space-x-3 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                    <div key={index} className="flex items-start p-2 md:p-4 border rounded-lg border-gray-200 justify-baseline space-x-3 cursor-pointer hover:shadow-md transition-shadow duration-200">
                       <div className="w-9 md:w-12 md:h-12 h-9  bg-lime-50 rounded-full flex items-center justify-center flex-shrink-0">
                         {activity.icon}
                       </div>
@@ -210,11 +219,11 @@ const Analytics = () => {
 
           {/* Game Scores Chart */}
           <Card className="border-[#e8e9e6]">
-            {/* <CardHeader>
+            <CardHeader>
               <CardTitle className="text-[#141b34]">Your game scores over your last 10 games</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-80">
+              <div className="h-80 w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={gameScores}>
                     <XAxis dataKey="game" axisLine={false} tickLine={false} tick={{ fill: "#9a9ca2", fontSize: 12 }} />
@@ -224,11 +233,11 @@ const Analytics = () => {
                       tick={{ fill: "#9a9ca2", fontSize: 12 }}
                       domain={[150, 250]}
                     />
-                    <Bar dataKey="score" fill="#1e2d5e" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="score"  fill="#1e2d5e" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-            </CardContent> */}
+            </CardContent>
           </Card>
 
           {/* Bottom Stats */}
