@@ -34,9 +34,9 @@ const MyTeams = () => {
         </div>
 
         {/* Teams List Header */}
-        <div className="px-6 py-4 flex justify-between items-center">
-          <h2 className="text-xl font-bold text-primary">10 Teams</h2>
-          <Button className="bg-primary hover:bg-primary/90 text-white gap-2">
+        <div className="px-6 pt-4 pb-0  md:pb-4 flex justify-between items-center">
+          <h2 className="text-xl md:text-2xl font-bold text-primary">10 Teams</h2>
+          <Button className="bg-primary text-base md:text-lg hover:bg-primary/90 text-button-text gap-2">
             <Plus size={18} />
             Create new Team
           </Button>
