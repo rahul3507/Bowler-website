@@ -121,9 +121,9 @@ const Analytics = () => {
             </div>
           </div>
         </div>        
-        <div className="p-6 space-y-6">
+        <div className="p-6 space-y-4 md:space-y-6">
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
             { AchievementsData.map((achievement, index) => (
               <Card key={index} className="border-gray-200  dark:border-gray-500 bg-transparent  cursor-pointer hover:shadow-lg transition-shadow duration-200">
                 <CardContent className="px-6 py-0">
@@ -198,7 +198,7 @@ const Analytics = () => {
                 <p className="text-xs md:text-sm text-secondary dark:text-gray-300">Your latest actions across the platform</p>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4 overflow-y-auto h-70 md:h-96 lg:h-96 xl:h-[470px] ">
+                <div className="space-y-2 md:space-y-4 overflow-y-auto h-70 md:h-96 lg:h-96 xl:h-[470px] ">
                   {recentActivities.map((activity, index) => (
                     <div key={index} className="flex items-start p-2 md:p-4 border rounded-lg border-gray-200 justify-baseline space-x-3 cursor-pointer hover:shadow-md transition-shadow duration-200">
                       <div className="w-9 md:w-12 md:h-12 h-9  bg-lime-50 rounded-full flex items-center justify-center flex-shrink-0">
@@ -220,41 +220,41 @@ const Analytics = () => {
 
           {/* Game Scores Chart */}
           <Card className="border-gray-200 dark:border-gray-500 bg-transparent cursor-pointer hover:shadow-lg transition-shadow duration-200">
-  <CardHeader>
-    <CardTitle className="text-secondary dark:text-gray-300 text-sm md:text-base">Your game scores over your last 10 games</CardTitle>
-  </CardHeader>
-  <CardContent>
-    <div className="h-80 w-full md:w-2/3 lg:w-1/2 xl:w-5/12">
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={gameScores}>
-          <XAxis 
-            dataKey="game" 
-            axisLine={true} 
-            tickLine={false} 
-            tick={{ fontSize: 12 }}
-            className="fill-gray-600 dark:fill-gray-500"
-          />
-          <YAxis
-            axisLine={true}
-            tickLine={true}
-            tick={{ fontSize: 12 }}
-            domain={[150, 250]}
-            className="fill-gray-600 dark:fill-gray-500"
-          />
-          <Bar 
-            dataKey="score" 
-            radius={[4, 4, 0, 0]} 
-            barSize={30}
-            className="fill-[#1E2D5E] dark:fill-gray-300"
-          />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  </CardContent>
-</Card>
+            <CardHeader>
+              <CardTitle className="text-secondary dark:text-gray-300 text-sm md:text-base">Your game scores over your last 10 games</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-80 w-full md:w-2/3 lg:w-1/2 xl:w-5/12">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={gameScores}>
+                    <XAxis 
+                      dataKey="game" 
+                      axisLine={true} 
+                      tickLine={false} 
+                      tick={{ fontSize: 12 }}
+                      className="fill-gray-600 dark:fill-gray-500"
+                    />
+                    <YAxis
+                      axisLine={true}
+                      tickLine={true}
+                      tick={{ fontSize: 12 }}
+                      domain={[150, 250]}
+                      className="fill-gray-600 dark:fill-gray-500"
+                    />
+                    <Bar 
+                      dataKey="score" 
+                      radius={[4, 4, 0, 0]} 
+                      barSize={30}
+                      className="fill-[#1E2D5E] dark:fill-gray-300"
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Bottom Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-6">
             {
               OverviewActivities.map((activity, index) => (
                 <Card key={index} className="border-gray-200 dark:border-gray-500 bg-transparent cursor-pointer hover:shadow-lg transition-shadow duration-200">

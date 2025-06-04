@@ -4,7 +4,7 @@ import { LuMessageCircleMore } from 'react-icons/lu'
 
 function TeamCard({ name, members, time, img }) {
   return (
-    <div className="border rounded-lg p-4 flex items-center justify-between">
+    <div className="border rounded-lg p-2 md:p-4 flex items-center justify-between">
       <div className="flex items-center gap-4">
         <img src={img} alt={name} className="w-12 h-12 rounded-full" />
         <div>
