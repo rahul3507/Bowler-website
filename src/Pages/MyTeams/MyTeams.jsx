@@ -18,24 +18,24 @@ const MyTeams = () => {
   return (
     <div className='flex-1 h-screen overflow-y-auto'>
         {/* Header */}
-        <div className="bg-white border-b border-[#e8e9e6] p-6">
+        <div className="bg-transparent border-b border-[#e8e9e6] p-6">
           <div className="flex flex-col md:flex-row  justify-center md:justify-between  items-center md:items-start ">
             <div className='text-center md:text-left mb-4 md:mb-0'>
-              <h1 className="text-xl md:text-2xl font-bold text-primary-heading mb-2">My Teams</h1>
-              <p className="text-secondary text-sm md:text-base">
+              <h1 className="text-xl md:text-2xl font-bold text-primary-heading dark:text-white mb-2">My Teams</h1>
+              <p className="text-secondary dark:text-gray-200 text-sm md:text-base">
                 Communications from bowling centers, manufacturers, and BowlersNetwork.
               </p>
             </div>
-            <div className="relative">
+            <div className="relative rounded-4xl dark:bg-gray-300">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-tertiary w-4 h-4" />
-              <Input placeholder="Overview" className="pl-9 w-64 rounded-4xl bg-transparent border-gray-200" />
+              <Input placeholder="Overview" className="pl-9 w-64  rounded-4xl bg-white border-gray-200" />
             </div>
           </div>
         </div>
 
         {/* Teams List Header */}
         <div className="px-6 pt-4 pb-0  md:pb-4 flex justify-between items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-primary">10 Teams</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200">10 Teams</h2>
           <Button className="bg-primary text-base md:text-lg hover:bg-primary/90 text-button-text gap-2">
             <Plus size={18} />
             Create new Team
