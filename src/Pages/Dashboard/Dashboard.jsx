@@ -75,9 +75,9 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
         "h-[60vh]"
       )}>
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between px-1 md:px-4 bg-sidebar text-white min-h-screen  gap-10">
+        <SidebarBody className="justify-between px-1 md:px-2 bg-sidebar text-white min-h-screen  gap-10">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
-            <div className="mb-6 mt-0 md:mt-3 ">
+            <div className={`mb-6 mt-0 md:mt-3 ${!open ? 'mx-auto' : ''}`}>
               {open ? <Logo /> : <LogoIcon />}
             </div>
             <hr className="w-full text-white"/>
