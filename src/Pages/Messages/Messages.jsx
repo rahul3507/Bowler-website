@@ -62,18 +62,18 @@ const Messages = () => {
             </div>
             {/* Category Tabs */}
             <div className="flex gap-2">
-              <Button className="px-3 md:px-6 py-2 md:py-3 bg-transparent text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">All</Button>
-              <Button className="px-2 md:px-6 py-2 md:py-3 bg-transparent text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">Bowling Centers</Button>
-              <Button className="px-2 md:px-6 py-2 md:py-3 bg-transparent text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">Manufacturers</Button>
+              <Button className="px-3 md:px-6 py-2 md:py-3 bg-transparent hover:bg-button-bg/70 hover:text-white text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">All</Button>
+              <Button className="px-2 md:px-6 py-2 md:py-3 bg-transparent hover:bg-button-bg/70 hover:text-white text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">Bowling Centers</Button>
+              <Button className="px-2 md:px-6 py-2 md:py-3 bg-transparent hover:bg-button-bg/70 hover:text-white text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">Manufacturers</Button>
             </div>
 
             {/* main */}
-            <div className="flex flex-row gap-4">
-              <div className="flex-1 bg-transparent border-tertiary dark:bg-gray-500 rounded-lg p-4 shadow-md">
-                <h2 className="text-lg font-semibold text-[#141b34]">Filters</h2>
+            <div className="flex flex-row gap-6">
+              <div className="max-w-90 bg-transparent border-tertiary dark:border-gray-500 rounded-lg p-4 shadow-md">
+                <h2 className="text-lg md:text-xl font-semibold text-primary dark:text-gray-200">Filters</h2>
 
-                <div className="mt-6">
-                  <h3 className="text-[#141b34] font-medium mb-3">Message Status</h3>
+                <div className="mt-2 md:mt-3">
+                  <h3 className="text-secondary dark:text-gray-300 text-base md:text-lg font-medium mb-3">Message Status</h3>
                   <div className="space-y-3">
                     <CheckboxItem label="Unread" />
                     <CheckboxItem label="Read" />
@@ -82,8 +82,8 @@ const Messages = () => {
                   </div>
                 </div>
 
-                <div className="mt-6">
-                  <h3 className="text-[#141b34] font-medium mb-3">Sender Type</h3>
+                <div className="mt-2 md:mt-3">
+                  <h3 className="text-secondary dark:text-gray-300 text-base md:text-lg font-medium mb-3">Sender Type</h3>
                   <div className="space-y-3">
                     <CheckboxItem label="Bowling Centers" />
                     <CheckboxItem label="Manufacturers" />
@@ -91,8 +91,8 @@ const Messages = () => {
                   </div>
                 </div>
 
-                <div className="mt-6">
-                  <h3 className="text-[#141b34] font-medium mb-3">Time Period</h3>
+                <div className="mt-2 md:mt-3">
+                  <h3 className="text-secondary dark:text-gray-300 text-base md:text-lg font-medium mb-3">Time Period</h3>
                   <div className="space-y-3">
                     <CheckboxItem label="Today" />
                     <CheckboxItem label="This Week" />
@@ -101,48 +101,52 @@ const Messages = () => {
                   </div>
                 </div>
 
-                <div className="mt-6">
-                  <h3 className="text-[#141b34] font-medium mb-3">Communication Preferences</h3>
+                <div className="mt-2 md:mt-3">
+                  <h3 className="text-secondary dark:text-gray-300 text-base md:text-lg font-medium ">Communication Preferences</h3>
 
-                  <div className="mt-4">
+                  <div className="mt-2">
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="font-medium text-[#141b34]">Bowling Centers</h4>
+                      <h4 className="font-medium text-secondary dark:text-gray-300 text-sm md:text-base">Bowling Centers</h4>
                       <Switch />
                     </div>
-                    <p className="text-xs text-[#9a9ca2]">Receive messages from bowling centers</p>
+                    <p className="text-xs md:text-sm text-tertiary dark:text-gray-400 ">Receive messages from bowling centers</p>
                   </div>
 
-                  <div className="mt-4">
+                  <div className="mt-2">
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="font-medium text-[#141b34]">Manufactures</h4>
+                      <h4 className="font-medium text-secondary dark:text-gray-300 text-sm md:text-base">Manufactures</h4>
                       <Switch />
                     </div>
-                    <p className="text-xs text-[#9a9ca2]">Receive messages from bowling centers</p>
+                    <p className="text-xs md:text-sm text-tertiary dark:text-gray-400 ">Receive messages from manufacturers</p>
                   </div>
 
-                  <div className="mt-4">
+                  <div className="mt-2">
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="font-medium text-[#141b34]">Promotions</h4>
+                      <h4 className="font-medium text-secondary dark:text-gray-300 text-sm md:text-base">Promotions</h4>
                       <Switch />
                     </div>
-                    <p className="text-xs text-[#9a9ca2]">Receive messages from bowling centers</p>
+                    <p className="text-xs md:text-sm text-tertiary dark:text-gray-400 ">Receive messages from promotions</p>
                   </div>
 
-                  <div className="mt-4">
+                  <div className="mt-2">
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="font-medium text-[#141b34]">System Notifications</h4>
+                      <h4 className="font-medium text-secondary dark:text-gray-300 text-sm md:text-base">System Notifications</h4>
                       <Switch />
                     </div>
-                    <p className="text-xs text-[#9a9ca2]">Receive messages from bowling centers</p>
+                    <p className="text-xs md:text-sm text-tertiary dark:text-gray-400 ">Receive messages from system notifications</p>
                   </div>
                 </div>
 
                 <div className="mt-6 space-y-3">
-                  <button className="w-full py-3 bg-[#8bc342] text-white rounded-md font-medium">Filter</button>
-                  <button className="w-full py-3 text-[#ee2e55] bg-white border border-[#d2d5df] rounded-md font-medium">
+                  <Button className="w-full py-2 bg-button-bg hover:bg-button-bg/80 text-white rounded-md font-medium text-sm md:text-base">Filter</Button>
+                  <Button className="w-full py-2 text-custom-red bg-white border border-tertiary rounded-md font-medium text-sm md:text-base hover:bg-gray-100">
                     Reset
-                  </button>
+                  </Button>
                 </div>
+              </div>
+
+              <div className=''>
+
               </div>
 
             </div>
@@ -157,12 +161,12 @@ export default Messages
 
 function CheckboxItem({ label }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center cursor-pointer gap-2">
       <Checkbox
         id={`checkbox-${label}`}
-        className="border-[#d2d5df] data-[state=checked]:bg-[#8bc342] data-[state=checked]:border-[#8bc342]"
+        className="border-primary cursor-pointer dark:border-gray-300 bg-transparent "
       />
-      <label htmlFor={`checkbox-${label}`} className="text-sm text-[#141b34]">
+      <label htmlFor={`checkbox-${label}`} className="text-sm text-secondary dark:text-gray-300">
         {label}
       </label>
     </div>

@@ -5,7 +5,7 @@ import { CiHome } from "react-icons/ci";
 import { RxDashboard } from "react-icons/rx";
 import { LuMessageCircleMore, LuUsers } from "react-icons/lu";
 
-import { motion } from "motion/react";
+
 import { cn } from "@/lib/utils";
 import {  NavLink, Outlet, useLocation } from "react-router-dom";
 import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
@@ -236,13 +236,13 @@ export const Logo = () => {
         <div className="h-9 w-9 md:h-15 md:w-15 shrink-0 rounded-full bg-transparent">
           <img src="/Bowling-logo.svg" alt="" />
         </div>
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+      <span
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
         className="font-medium text-base md:text-xl whitespace-pre text-white dark:text-white">
 
         Bowlersnetwork
-      </motion.span>
+      </span>
     </a>
   );
 };
