@@ -20,4 +20,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ["swiper/react", "swiper/modules"],
   },
+  build: {
+    rollupOptions: {
+      external: [],
+    },
+  },
 });
