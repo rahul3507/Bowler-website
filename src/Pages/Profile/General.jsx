@@ -59,8 +59,8 @@ const General = () => {
             <div className="w-full mt-2 md:mt-6   bg-transparent flex flex-col md:flex-row  gap-6 md:gap-12">
                 {/* Trading Card Section */}
                 <div className=" flex-1 gap-4 md:gap-8 p-2 md:p-6 rounded-lg border border-gray-200 items-start">
-                    <div className="flex items-center gap-4 ">
-                        <div className="bg-[#fcd5dd] w-20  text-custom-red px-3 py-1 rounded-full text-sm font-medium">Level 12</div>
+                    <div className="flex w-full justify-end items-center  gap-4 ">
+                        <button className="bg-[#fcd5dd] w-20  text-custom-red px-3 py-1 rounded-full text-sm font-medium">Level 12</button>
                     </div>
                     
                     <div className="flex-shrink-0 text-center  items-center">
