@@ -17,6 +17,7 @@ import Analytics from '@/Pages/Analytics/Analytics';
 import Tournaments from '@/Pages/Tournaments/Tournaments';
 import Messages from '@/Pages/Messages/Messages';
 import Profile from '@/Pages/Profile/Profile';
+import General from '@/Pages/Profile/General';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -42,7 +43,9 @@ const AppRoutes = () => {
                 <Route path="analytics" element={<Analytics />} />
                 <Route path="tournaments" element={<Tournaments />} />
                 <Route path="messages" element={<Messages />} />
-                <Route path='profile' element={<Profile />} />
+                <Route path='profile' element={<Profile />} >
+                  <Route path='general' element={<General />} />
+                </Route>
               </Route>
             </Route>
           </Route>
