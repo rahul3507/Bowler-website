@@ -9,11 +9,11 @@ const Profile = () => {
 
     const tabs = [
                     { name: "General", to: "/dashboard/profile" },
-                    { name: "Bowling Statistics", to: "/dashboard/profile/bowling-statistics" },
-                    { name: "Media", to: "/dashboard/profile/media" },
-                    { name: "Achievement", to: "/dashboard/profile/achievement" },
-                    { name: "Privacy", to: "/dashboard/profile/privacy" },
-                    { name: "Settings", to: "/dashboard/profile/settings" }
+                    { name: "Bowling Statistics", to: "/dashboard/profile" },
+                    { name: "Media", to: "/dashboard/profile" },
+                    { name: "Achievement", to: "/dashboard/profile" },
+                    { name: "Privacy", to: "/dashboard/profile" },
+                    { name: "Settings", to: "/dashboard/profile" }
                 ]
   return (
     <div className="flex-1 h-screen overflow-y-auto">
