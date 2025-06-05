@@ -45,6 +45,9 @@
   },
   "devDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.9.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.9.0",
+    "@rollup/rollup-darwin-x64": "^4.9.0",
+    "@rollup/rollup-darwin-arm64": "^4.9.0",
     "@eslint/js": "^9.25.0",
     "@types/node": "^22.15.29",
     "@types/react": "^19.1.2",
