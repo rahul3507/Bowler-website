@@ -7,95 +7,105 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
 const General = () => {
   return (
-    <div className="flex-1 px-6 pb-6">
-          <div className="max-w-4xl">
-            <h2 className="text-xl font-semibold text-[#141b34] mb-2">General Information</h2>
-            <p className="text-[#9a9ca2] mb-8">Update your personal information adn how ti appears on hour profile.</p>
+    <div className="flex-1 px-0  md:px-6 pb-6">
+          <div className="w-full border border-gray-200 rounded-lg p-2 md:p-6 bg-transparent ">
+            <h2 className="text-lg md:text-2xl font-semibold text-primary mb-0 md:mb-1 text-center md:text-start">General Information</h2>
+            <p className="text-secondary text-sm md:text-lg mb-4 md:mb-8 text-center md:text-start">Update your personal information adn how ti appears on hour profile.</p>
 
-            <div className="flex gap-12">
+            <div className="flex flex-col md:flex-row  gap-6 md:gap-12">
               {/* Left Column - Avatar */}
-              <div className="flex flex-col items-center">
-                <Avatar className="w-32 h-32 mb-4">
+              <div className="flex-1 flex-col text-center  items-center">
+                <Avatar className="w-32 h-32 md:w-48 md:h-48 mb-6  mx-auto">
                   <AvatarFallback className="bg-[#d9d9d9] w-full h-full"></AvatarFallback>
                 </Avatar>
-                <Button variant="outline" className="bg-[#d2d5df] border-[#d2d5df] text-[#141b34] hover:bg-[#d9d9d9]">
+                <Button variant="outline" className="bg-[#d2d5df] border-gray-200 text-primary hover:bg-[#d9d9d9]">
                   Change Avatar
                 </Button>
               </div>
 
               {/* Right Column - Form */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-4 space-y-3 md:space-y-6">
                 <div>
-                  <Label htmlFor="firstName" className="text-[#141b34] font-medium">
+                  <Label htmlFor="firstName" className="text-secondary text-sm md:text-base font-medium">
                     First Name
                   </Label>
-                  <Input id="firstName" placeholder="John" className="mt-2 border-[#e8e9e6]" />
+                  <Input id="firstName" placeholder="John" className="mt-2 text-xs md:text-sm border-gray-200" />
                 </div>
 
                 <div>
-                  <Label htmlFor="displayName" className="text-[#141b34] font-medium">
+                  <Label htmlFor="displayName" className="text-secondary text-sm md:text-base font-medium">
                     Display Name
                   </Label>
-                  <Input id="displayName" placeholder="John" className="mt-2 border-[#e8e9e6]" />
+                  <Input id="displayName" placeholder="John" className="mt-2 text-xs md:text-sm border-gray-200" />
                 </div>
 
                 <div>
-                  <Label htmlFor="bio" className="text-[#141b34] font-medium">
+                  <Label htmlFor="bio" className="text-secondary text-sm md:text-base font-medium">
                     Bio
                   </Label>
-                  <Textarea id="bio" placeholder="John" className="mt-2 border-[#e8e9e6] min-h-[100px]" />
+                  <Textarea id="bio" placeholder="John" className="mt-2 border-gray-200 text-xs md:text-sm min-h-[100px]" />
                 </div>
 
-                <div className="flex justify-end pt-4">
-                  <Button className="bg-[#1e2d5e] hover:bg-[#141b34] text-white px-8">Save Change</Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Trading Card Section */}
-            <div className="mt-16 flex gap-8 items-start">
-              <div className="flex-shrink-0">
-                <Avatar className="w-24 h-24">
-                  <AvatarFallback className="bg-[#d9d9d9] w-full h-full"></AvatarFallback>
-                </Avatar>
-              </div>
-
-              <div className="flex-1">
-                <p className="text-[#9a9ca2] mb-4 max-w-md">
-                  Your digital trading card is automatically generated based on your profile information and bowling
-                  statistics. Premium members can customize their cards with additional images and stats.
-                </p>
-
-                <div className="text-center mb-4">
-                  <p className="text-[#9a9ca2] text-sm">New York, NY</p>
-                </div>
-
-                <div className="grid grid-cols-4 gap-8 mb-6">
-                  <div className="text-center">
-                    <p className="text-[#9a9ca2] text-sm">Avg. Score</p>
-                    <p className="text-2xl font-bold text-[#141b34]">187</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[#9a9ca2] text-sm">High Game</p>
-                    <p className="text-2xl font-bold text-[#141b34]">245</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[#9a9ca2] text-sm">Style</p>
-                    <p className="text-lg font-semibold text-[#141b34]">hook</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[#9a9ca2] text-sm">Hand</p>
-                    <p className="text-lg font-semibold text-[#141b34]">Right</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="bg-[#fcd5dd] text-[#ee2e55] px-3 py-1 rounded-full text-sm font-medium">Level 12</div>
-                  <Button className="bg-[#8bc342] hover:bg-[#111b05] text-white">Upgrade to Premium</Button>
+                <div className="flex justify-center md:justify-end pt-2 md:pt-4">
+                  <Button className="bg-primary text-sm md:text-base hover:bg-[#141b34] text-white py-0 md:py-4  px-8">Save Change</Button>
                 </div>
               </div>
             </div>
+
+            
           </div>
+
+
+            <div className="w-full mt-2 md:mt-6   bg-transparent flex flex-col md:flex-row  gap-6 md:gap-12">
+                {/* Trading Card Section */}
+                <div className=" flex-1 gap-4 md:gap-8 p-2 md:p-6 rounded-lg border border-gray-200 items-start">
+                    <div className="flex items-center gap-4 ">
+                        <div className="bg-[#fcd5dd] w-20  text-custom-red px-3 py-1 rounded-full text-sm font-medium">Level 12</div>
+                    </div>
+                    
+                    <div className="flex-shrink-0 text-center  items-center">
+                        <Avatar className="w-20 h-20 md:w-28 md:h-28 mx-auto">
+                            <AvatarFallback className="bg-gray-200 w-full h-full"></AvatarFallback>
+                        </Avatar>
+
+
+                        <div className="text-center mb-4 mt-6">
+                            <p className="text-primary font-semibold mb-2 text-lg md:text-xl">John Smith</p>
+                            <p className="text-tertiary text-sm md:text-lg">New York, NY</p>
+                        </div>
+                    </div>
+
+                    <div className="flex-1">
+                        <div className="grid grid-cols-2 gap-4 md:gap-8 mb-6">
+                            <div className="text-center">
+                                <p className="text-tertiary text-xs md:text-base">Avg. Score</p>
+                                <p className=" text-sm md:text-lg font-bold text-secondary">187</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-tertiary text-xs md:text-base">High Game</p>
+                                <p className=" text-sm md:text-lg font-bold text-secondary">245</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-tertiary text-xs md:text-base">Style</p>
+                                <p className="text-sm md:text-lg font-semibold text-secondary">hook</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-tertiary text-xs md:text-base">Hand</p>
+                                <p className="text-sm md:text-lg font-semibold text-secondary">Right</p>
+                            </div>
+                        </div>
+
+                    
+                </div>
+                </div>
+                <div className="flex-4 my-auto text-center md:text-left">
+                    <p className="text-tertiary mb-4 text-sm md:text-lg">
+                        Your digital trading card is automatically generated based on your profile information and bowling
+                        statistics. Premium members can customize their cards with additional images and stats.
+                    </p>
+                    <Button className="bg-button-bg hover:bg-button-bg/90 text-white text-xs md:text-base">Upgrade to Premium</Button>
+                </div>
+            </div>
         </div>
   )
 }

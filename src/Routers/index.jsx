@@ -37,14 +37,14 @@ const AppRoutes = () => {
               <Route path="signup" element={<SignUp />} />
               <Route path="signin" element={<SignIn />} />
               <Route path="dashboard" element={<Dashboard/>}>
-                <Route path="home" element={<HomePage />} />
+                <Route index element={<HomePage />} />
                 <Route path="overview" element={<Overview />} />
                 <Route path="myteams" element={<MyTeams />} />
                 <Route path="analytics" element={<Analytics />} />
                 <Route path="tournaments" element={<Tournaments />} />
                 <Route path="messages" element={<Messages />} />
                 <Route path='profile' element={<Profile />} >
-                  <Route path='general' element={<General />} />
+                  <Route index element={<General />} />
                 </Route>
               </Route>
             </Route>

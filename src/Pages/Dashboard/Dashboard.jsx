@@ -90,7 +90,7 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
                 
                   <li>
                     <NavLink
-                      to="home"
+                      to="/dashboard"
                       className={() =>
                         ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg  ${
                           isHomeActive()

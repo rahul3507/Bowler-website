@@ -8,7 +8,7 @@ const Profile = () => {
     const [activeTab, setActiveTab] = useState("General")
 
     const tabs = [
-                    { name: "General", to: "/dashboard/profile/general" },
+                    { name: "General", to: "/dashboard/profile" },
                     { name: "Bowling Statistics", to: "/dashboard/profile/bowling-statistics" },
                     { name: "Media", to: "/dashboard/profile/media" },
                     { name: "Achievement", to: "/dashboard/profile/achievement" },
