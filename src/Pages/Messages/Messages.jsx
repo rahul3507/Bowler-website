@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { Switch } from '@/components/ui/switch'
 import { Search } from 'lucide-react'
 import React from 'react'
+import SingleMessage from './SingleMessage'
 
 const Messages = () => {
   return (
@@ -145,14 +146,16 @@ const Messages = () => {
                 </div>
               </div>
 
-              <div className=''>
-
+              {/* Messages List */}
+              <div className="flex-1 overflow-auto">
+                {[1, 2, 3, 4].map((i) => (
+                  <SingleMessage key={i} />
+                ))}
               </div>
 
             </div>
 
-            
-        </div>
+          </div>
     </div>
   )
 }

@@ -33,6 +33,9 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
     const isMessagesActive = () => {
       return (location.pathname.includes('/dashboard/messages'))
     };
+    const isProfileActive = () => {
+      return (location.pathname.includes('/dashboard/profile')) ;
+    };
 
   // const links = [
   //   {
@@ -205,7 +208,16 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
             </div>
           </div>
           
-          <div>
+          <NavLink
+            to="/dashboard/profile"
+            className={() =>
+                        ` py-0 px-2 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isProfileActive()
+                            ? "bg-button-bg py-0 "
+                            : "bg-transparent  hover:bg-button-bg/45 "
+                        }`
+                      }
+            >
             <SidebarLink
               link={{
                 label: "Manu Arora",
@@ -219,7 +231,7 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
                     alt="Avatar" />
                 ),
               }} />
-          </div>
+          </NavLink>
         </SidebarBody>
       </Sidebar>
       <Outlet />
@@ -237,8 +249,7 @@ export const Logo = () => {
           <img src="/Bowling-logo.svg" alt="" />
         </div>
       <span
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
+        
         className="font-medium text-base md:text-xl whitespace-pre text-white dark:text-white">
 
         Bowlersnetwork
