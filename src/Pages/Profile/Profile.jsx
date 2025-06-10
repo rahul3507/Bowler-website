@@ -9,7 +9,7 @@ const Profile = () => {
 
     const tabs = [
                     { name: "General", to: "/dashboard/profile" },
-                    { name: "Bowling Statistics", to: "/dashboard/profile" },
+                    { name: "Bowling Statistics", to: "/dashboard/profile/bowlingstatistics" },
                     { name: "Media", to: "/dashboard/profile" },
                     { name: "Achievement", to: "/dashboard/profile" },
                     { name: "Privacy", to: "/dashboard/profile" },
@@ -55,7 +55,7 @@ const Profile = () => {
         </div>
         
         {/* Content Area */}
-         <div className="px-6">
+         <div className="">
             <Outlet />
          </div>
 

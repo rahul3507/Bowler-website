@@ -18,6 +18,7 @@ import Tournaments from '@/Pages/Tournaments/Tournaments';
 import Messages from '@/Pages/Messages/Messages';
 import Profile from '@/Pages/Profile/Profile';
 import General from '@/Pages/Profile/General';
+import BowlingStatistics from '@/Pages/Profile/BowlingStatistics';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -45,6 +46,7 @@ const AppRoutes = () => {
                 <Route path="messages" element={<Messages />} />
                 <Route path='profile' element={<Profile />} >
                   <Route index element={<General />} />
+                  <Route path='bowlingstatistics' element={<BowlingStatistics/>}/>
                 </Route>
               </Route>
             </Route>
