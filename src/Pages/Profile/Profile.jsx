@@ -10,7 +10,7 @@ const Profile = () => {
     const tabs = [
                     { name: "General", to: "/dashboard/profile" },
                     { name: "Bowling Statistics", to: "/dashboard/profile/bowlingstatistics" },
-                    { name: "Media", to: "/dashboard/profile" },
+                    { name: "Media", to: "/dashboard/profile/media" },
                     { name: "Privacy", to: "/dashboard/profile/privacy" },
                     { name: "Settings", to: "/dashboard/profile/settings" }
                 ]

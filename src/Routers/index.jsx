@@ -21,6 +21,7 @@ import General from '@/Pages/Profile/General';
 import BowlingStatistics from '@/Pages/Profile/BowlingStatistics';
 import Privacy from '@/Pages/Profile/Privacy';
 import Settings from '@/Pages/Profile/Settings';
+import Media from '@/Pages/Profile/Media';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -50,6 +51,7 @@ const AppRoutes = () => {
                   <Route index element={<General />} />
                   <Route path='bowlingstatistics' element={<BowlingStatistics/>}/>
                   <Route path='privacy' element={<Privacy/>}/>
+                  <Route path='media' element={<Media  />}/>
                   <Route path='settings' element={<Settings/>}/>
                 </Route>
               </Route>
