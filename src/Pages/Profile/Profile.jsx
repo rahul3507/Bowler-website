@@ -12,7 +12,7 @@ const Profile = () => {
                     { name: "Bowling Statistics", to: "/dashboard/profile/bowlingstatistics" },
                     { name: "Media", to: "/dashboard/profile" },
                     { name: "Achievement", to: "/dashboard/profile" },
-                    { name: "Privacy", to: "/dashboard/profile" },
+                    { name: "Privacy", to: "/dashboard/profile/privacy" },
                     { name: "Settings", to: "/dashboard/profile" }
                 ]
   return (
