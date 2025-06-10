@@ -11,9 +11,8 @@ const Profile = () => {
                     { name: "General", to: "/dashboard/profile" },
                     { name: "Bowling Statistics", to: "/dashboard/profile/bowlingstatistics" },
                     { name: "Media", to: "/dashboard/profile" },
-                    { name: "Achievement", to: "/dashboard/profile" },
                     { name: "Privacy", to: "/dashboard/profile/privacy" },
-                    { name: "Settings", to: "/dashboard/profile" }
+                    { name: "Settings", to: "/dashboard/profile/settings" }
                 ]
   return (
     <div className="flex-1 h-screen overflow-y-auto">
