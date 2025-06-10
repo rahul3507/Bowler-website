@@ -4,8 +4,32 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useState, useRef } from "react"
+import { Check } from "lucide-react"
 
 const General = () => {
+
+      const [isLoading, setIsLoading] = useState(false);
+      const [isSaved, setIsSaved] = useState(false);
+       const [isLoadingUpgrade, setIsLoadingUpgrade] = useState(false);
+      const [isSavedUpgrade, setIsSavedUpgrade] = useState(false);
+      const handleUpgrade = async () => {
+              setIsLoadingUpgrade(true);
+              // Simulate API call
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              setIsLoadingUpgrade(false);
+              setIsSavedUpgrade(true);
+              setTimeout(() => setIsSavedUpgrade(false), 3000);
+            };
+
+      const handleSave = async () => {
+              setIsLoading(true);
+              // Simulate API call
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              setIsLoading(false);
+              setIsSaved(true);
+              setTimeout(() => setIsSaved(false), 3000);
+            };
+  
   const [profileImage, setProfileImage] = useState(null)
   const [tradingCardImage, setTradingCardImage] = useState(null)
   const profileFileInputRef = useRef(null)
@@ -86,7 +110,31 @@ const General = () => {
                 </div>
 
                 <div className="flex justify-center md:justify-end pt-2 md:pt-4">
-                  <Button className="bg-primary text-sm md:text-base hover:bg-[#141b34] text-white py-0 md:py-4  px-8">Save Change</Button>
+                  <Button
+                                        onClick={handleSave}
+                                        disabled={isLoading}
+                                        className={`px-7 py-3 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2 ${
+                                        isLoading
+                                            ? 'bg-gray-400 cursor-not-allowed'
+                                            : isSaved
+                                            ? 'bg-button-bg hover:bg-green-700'
+                                            : 'bg-button-bg hover:bg-green-600 transform hover:scale-105 active:scale-95'
+                                        } shadow-lg hover:shadow-xl`}
+                                    >
+                                        {isLoading ? (
+                                        <>
+                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                            Saving...
+                                        </>
+                                        ) : isSaved ? (
+                                        <>
+                                            <Check className="w-5 h-5" />
+                                            Saved!
+                                        </>
+                                        ) : (
+                                        'Save Change'
+                                        )}
+                      </Button>
                 </div>
               </div>
             </div>
@@ -155,8 +203,31 @@ const General = () => {
                         Your digital trading card is automatically generated based on your profile information and bowling
                         statistics. Premium members can customize their cards with additional images and stats.
                     </p>
-                    <Button className="bg-button-bg px-7 py-3 hover:bg-button-bg/90 text-white text-xs md:text-base">Upgrade to Premium</Button>
-                </div>
+                    <Button
+                                        onClick={handleUpgrade}
+                                        disabled={isLoadingUpgrade}
+                                        className={`px-7 py-3 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2 ${
+                                        isLoadingUpgrade
+                                            ? 'bg-gray-400 cursor-not-allowed'
+                                            : isSavedUpgrade
+                                            ? 'bg-button-bg hover:bg-green-700'
+                                            : 'bg-button-bg hover:bg-green-600 transform hover:scale-105 active:scale-95'
+                                        } shadow-lg hover:shadow-xl`}
+                                    >
+                                        {isLoadingUpgrade ? (
+                                        <>
+                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                            Upgrading...
+                                        </>
+                                        ) : isSavedUpgrade ? (
+                                        <>
+                                            <Check className="w-5 h-5" />
+                                            Upgraded!
+                                        </>
+                                        ) : (
+                                        'Upgrade to Premium'
+                                        )}
+                      </Button> </div>
             </div>
         </div>
   )
