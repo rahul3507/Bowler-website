@@ -10,7 +10,7 @@ const General = () => {
 
       const [isLoading, setIsLoading] = useState(false);
       const [isSaved, setIsSaved] = useState(false);
-       const [isLoadingUpgrade, setIsLoadingUpgrade] = useState(false);
+      const [isLoadingUpgrade, setIsLoadingUpgrade] = useState(false);
       const [isSavedUpgrade, setIsSavedUpgrade] = useState(false);
       const handleUpgrade = async () => {
               setIsLoadingUpgrade(true);
