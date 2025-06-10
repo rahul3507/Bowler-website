@@ -65,7 +65,7 @@ const Privacy = () => {
                 </div>
             </div>
 
-            <div className='flex justify-between mb-3 md:mb-6'>
+            <div className='flex justify-between mb-5 md:mb-6'>
                 <div>
                     <h4 className='text-secondary font-medium text-xs md:text-base'>Communication Preferences</h4>
                     <p className='text-secondary text-xs md:text-base ' >Control who can send you messages</p>
