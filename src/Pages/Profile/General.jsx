@@ -155,7 +155,7 @@ const General = () => {
                         Your digital trading card is automatically generated based on your profile information and bowling
                         statistics. Premium members can customize their cards with additional images and stats.
                     </p>
-                    <Button className="bg-button-bg hover:bg-button-bg/90 text-white text-xs md:text-base">Upgrade to Premium</Button>
+                    <Button className="bg-button-bg px-7 py-3 hover:bg-button-bg/90 text-white text-xs md:text-base">Upgrade to Premium</Button>
                 </div>
             </div>
         </div>

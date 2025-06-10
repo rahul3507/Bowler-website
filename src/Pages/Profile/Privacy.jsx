@@ -1,7 +1,20 @@
+import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import React from 'react'
+import { Check } from 'lucide-react'
+import React, { useState } from 'react'
 
 const Privacy = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSaved, setIsSaved] = useState(false);
+    const handleSave = async () => {
+    setIsLoading(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setIsLoading(false);
+    setIsSaved(true);
+    setTimeout(() => setIsSaved(false), 3000);
+  };
+
   return (
     <div className="flex-1 px-0  md:px-6 pb-6">
         <div className="w-full border border-gray-200 rounded-lg p-2 md:p-6 bg-transparent ">
@@ -73,6 +86,34 @@ const Privacy = () => {
                     </Select>
                 </div>
             </div>
+
+            <div className="w-full flex justify-center md:justify-end ">
+                <Button
+                    onClick={handleSave}
+                    disabled={isLoading}
+                    className={`px-7 py-3 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center gap-2 ${
+                    isLoading
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : isSaved
+                        ? 'bg-button-bg hover:bg-green-700'
+                        : 'bg-button-bg hover:bg-green-600 transform hover:scale-105 active:scale-95'
+                    } shadow-lg hover:shadow-xl`}
+                >
+                    {isLoading ? (
+                    <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Saving...
+                    </>
+                    ) : isSaved ? (
+                    <>
+                        <Check className="w-5 h-5" />
+                        Saved!
+                    </>
+                    ) : (
+                    'Save Privacy Settings'
+                    )}
+                </Button>
+                </div>
 
         </div>
     </div>
