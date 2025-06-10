@@ -1,11 +1,35 @@
-
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useState, useRef } from "react"
 
 const General = () => {
+  const [profileImage, setProfileImage] = useState(null)
+  const [tradingCardImage, setTradingCardImage] = useState(null)
+  const profileFileInputRef = useRef(null)
+  const tradingCardFileInputRef = useRef(null)
+
+  const handleImageUpload = (event, setImage) => {
+    const file = event.target.files[0]
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        setImage(e.target.result)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
+  const handleProfileImageClick = () => {
+    profileFileInputRef.current?.click()
+  }
+
+  const handleTradingCardImageClick = () => {
+    tradingCardFileInputRef.current?.click()
+  }
+
   return (
     <div className="flex-1 px-0  md:px-6 pb-6">
           <div className="w-full border border-gray-200 rounded-lg p-2 md:p-6 bg-transparent ">
@@ -16,9 +40,24 @@ const General = () => {
               {/* Left Column - Avatar */}
               <div className="flex-1 flex-col text-center  items-center">
                 <Avatar className="w-32 h-32 md:w-48 md:h-48 mb-6  mx-auto">
-                  <AvatarFallback className="bg-[#d9d9d9] w-full h-full"></AvatarFallback>
+                  {profileImage ? (
+                    <AvatarImage src={profileImage} alt="Profile" className="object-cover" />
+                  ) : (
+                    <AvatarFallback className="bg-[#d9d9d9] w-full h-full"></AvatarFallback>
+                  )}
                 </Avatar>
-                <Button variant="outline" className="bg-[#d2d5df] border-gray-200 text-primary hover:bg-[#d9d9d9]">
+                <input
+                  type="file"
+                  ref={profileFileInputRef}
+                  onChange={(e) => handleImageUpload(e, setProfileImage)}
+                  accept="image/*"
+                  className="hidden"
+                />
+                <Button 
+                  variant="outline" 
+                  className="bg-[#d2d5df] border-gray-200 text-primary hover:bg-[#d9d9d9]"
+                  onClick={handleProfileImageClick}
+                >
                   Change Avatar
                 </Button>
               </div>
@@ -64,10 +103,23 @@ const General = () => {
                     </div>
                     
                     <div className="flex-shrink-0 text-center  items-center">
-                        <Avatar className="w-20 h-20 md:w-28 md:h-28 mx-auto">
+                        <Avatar 
+                          className="w-20 h-20 md:w-28 md:h-28 mx-auto cursor-pointer hover:opacity-80 transition-opacity"
+                          onClick={handleTradingCardImageClick}
+                        >
+                          {tradingCardImage ? (
+                            <AvatarImage src={tradingCardImage} alt="Trading Card" className="object-cover" />
+                          ) : (
                             <AvatarFallback className="bg-gray-200 w-full h-full"></AvatarFallback>
+                          )}
                         </Avatar>
-
+                        <input
+                          type="file"
+                          ref={tradingCardFileInputRef}
+                          onChange={(e) => handleImageUpload(e, setTradingCardImage)}
+                          accept="image/*"
+                          className="hidden"
+                        />
 
                         <div className="text-center mb-4 mt-6">
                             <p className="text-primary font-semibold mb-2 text-lg md:text-xl">John Smith</p>
