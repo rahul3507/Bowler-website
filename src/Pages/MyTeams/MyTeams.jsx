@@ -4,16 +4,95 @@ import { Plus, Search } from 'lucide-react'
 import React from 'react'
 import TeamCard from './TeamCard'
 import { Modal, ModalBody, ModalContent, ModalTrigger } from '@/components/ui/animated-modal'
+import CreateTeam from './CreateTeam'
 
 const MyTeams = () => {
   const teams = [
-    { name: "Teams Name", members: 5, time: "7 days ago", img: "https://assets.aceternity.com/manu.png" },
-    { name: "Teams Name", members: 5, time: "7 days ago", img: "https://assets.aceternity.com/manu.png" },
-    { name: "Teams Name", members: 5, time: "7 days ago", img: "https://assets.aceternity.com/manu.png" },
-    { name: "Teams Name", members: 5, time: "7 days ago", img: "https://assets.aceternity.com/manu.png" },
-    { name: "Teams Name", members: 5, time: "7 days ago", img: "https://assets.aceternity.com/manu.png" },
-    { name: "Teams Name", members: 5, time: "7 days ago", img: "https://assets.aceternity.com/manu.png" },
-    { name: "Teams Name", members: 5, time: "7 days ago", img: "https://assets.aceternity.com/manu.png" },
+    { 
+      name: "Teams Name", 
+      members : [
+                  { id: '1', name: 'John Smith', membersimg: "https://assets.aceternity.com/manu.png" },
+                  {  id: '2', name: 'Sarah Johnson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '3', name: 'Mike Wilson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '4', name: 'Emily Davis', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                   { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                ], 
+      time: "7 days ago", 
+      img: "https://assets.aceternity.com/manu.png" 
+    },
+    { 
+      name: "Teams Name", 
+      members : [
+                   { id: '1', name: 'John Smith', membersimg: "https://assets.aceternity.com/manu.png" },
+                  {  id: '2', name: 'Sarah Johnson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '3', name: 'Mike Wilson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '4', name: 'Emily Davis', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                ], 
+      time: "7 days ago", 
+      img: "https://assets.aceternity.com/manu.png" 
+    },
+    { 
+      name: "Teams Name", 
+      members : [
+                   { id: '1', name: 'John Smith', membersimg: "https://assets.aceternity.com/manu.png" },
+                  {  id: '2', name: 'Sarah Johnson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '3', name: 'Mike Wilson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '4', name: 'Emily Davis', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                ], 
+      time: "7 days ago", 
+      img: "https://assets.aceternity.com/manu.png" 
+    },
+    { 
+      name: "Teams Name", 
+      members : [
+                   { id: '1', name: 'John Smith', membersimg: "https://assets.aceternity.com/manu.png" },
+                  {  id: '2', name: 'Sarah Johnson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '3', name: 'Mike Wilson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '4', name: 'Emily Davis', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                ], 
+      time: "7 days ago", 
+      img: "https://assets.aceternity.com/manu.png" 
+    },
+    { 
+      name: "Teams Name", 
+      members : [
+                   { id: '1', name: 'John Smith', membersimg: "https://assets.aceternity.com/manu.png" },
+                  {  id: '2', name: 'Sarah Johnson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '3', name: 'Mike Wilson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '4', name: 'Emily Davis', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                ], 
+      time: "7 days ago", 
+      img: "https://assets.aceternity.com/manu.png" 
+    },
+    { 
+      name: "Teams Name", 
+      members : [
+                   { id: '1', name: 'John Smith', membersimg: "https://assets.aceternity.com/manu.png" },
+                  {  id: '2', name: 'Sarah Johnson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '3', name: 'Mike Wilson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '4', name: 'Emily Davis', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                ], 
+      time: "7 days ago", 
+      img: "https://assets.aceternity.com/manu.png" 
+    },
+    { 
+      name: "Teams Name", 
+      members : [
+                   { id: '1', name: 'John Smith', membersimg: "https://assets.aceternity.com/manu.png" },
+                  {  id: '2', name: 'Sarah Johnson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '3', name: 'Mike Wilson', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '4', name: 'Emily Davis', membersimg: "https://assets.aceternity.com/manu.png" },
+                  { id: '5', name: 'Alex Thompson', membersimg: "https://assets.aceternity.com/manu.png" },
+                ], 
+      time: "7 days ago", 
+      img: "https://assets.aceternity.com/manu.png" 
+    },
   ]
 
   return (
@@ -45,7 +124,7 @@ const MyTeams = () => {
             </ModalTrigger>
             <ModalBody>
               <ModalContent>
-                <div>heloo</div>
+                <CreateTeam/>
               </ModalContent>
             </ModalBody>
           </Modal>
@@ -55,7 +134,7 @@ const MyTeams = () => {
         {/* Teams List */}
         <div className="p-6 space-y-2 md:space-y-4">
           {teams.map((team, index) => (
-            <TeamCard key={index} name={team.name} members={team.members} time={team.time} img={team.img} />
+            <TeamCard key={index} name={team.name} members={team.members.length} time={team.time} img={team.img} />
           ))}
         </div>
     </div>

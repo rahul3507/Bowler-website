@@ -64,7 +64,7 @@ export const ModalBody = ({
 
   const modalRef = useRef(null);
   const { setOpen } = useModal();
-  useOutsideClick(modalRef, () => setOpen(false));
+  // useOutsideClick(modalRef, () => setOpen(false));
 
   return (
     <AnimatePresence>
@@ -167,7 +167,7 @@ const Overlay = ({
 const CloseIcon = () => {
   const { setOpen } = useModal();
   return (
-    <button onClick={() => setOpen(false)} className="absolute top-4 right-4 group">
+    <button onClick={() => setOpen(false)} className="absolute top-4 cursor-pointer bg-red-100 p-1 rounded-full right-4 group">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -178,7 +178,7 @@ const CloseIcon = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-black dark:text-white h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200">
+        className="text-red-500 dark:text-white h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M18 6l-12 12" />
         <path d="M6 6l12 12" />
@@ -189,25 +189,25 @@ const CloseIcon = () => {
 
 // Hook to detect clicks outside of a component.
 // Add it in a separate file, I've added here for simplicity
-export const useOutsideClick = (
-  ref,
-  callback
-) => {
-  useEffect(() => {
-    const listener = (event) => {
-      // DO NOTHING if the element being clicked is the target element or their children
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
-      }
-      callback(event);
-    };
+// export const useOutsideClick = (
+//   ref,
+//   callback
+// ) => {
+//   useEffect(() => {
+//     const listener = (event) => {
+//       // DO NOTHING if the element being clicked is the target element or their children
+//       if (!ref.current || ref.current.contains(event.target)) {
+//         return;
+//       }
+//       callback(event);
+//     };
 
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
+//     document.addEventListener("mousedown", listener);
+//     document.addEventListener("touchstart", listener);
 
-    return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
-    };
-  }, [ref, callback]);
-};
+//     return () => {
+//       document.removeEventListener("mousedown", listener);
+//       document.removeEventListener("touchstart", listener);
+//     };
+//   }, [ref, callback]);
+// };
