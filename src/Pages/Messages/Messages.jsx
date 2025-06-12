@@ -69,7 +69,7 @@ const Messages = () => {
             </div>
 
             {/* main */}
-            <div className="flex flex-row gap-6">
+            <div className="flex flex-col md:flex-row gap-6">
               <div className="max-w-90 bg-transparent border-tertiary dark:border-gray-500 rounded-lg p-4 shadow-md">
                 <h2 className="text-lg md:text-xl font-semibold text-primary dark:text-gray-200">Filters</h2>
 
