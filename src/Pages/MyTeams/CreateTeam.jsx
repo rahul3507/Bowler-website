@@ -3,10 +3,10 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ChevronDown, Search, X } from 'lucide-react'
 import { FileUpload } from "@/components/ui/file-upload";
-import { Checkbox } from '@/components/ui/checkbox';
+
 import { useState } from 'react';
 
-const CreateTeam = ({ allMembers = [], onCreateTeam, onClose }) => {
+const CreateTeam = ({ allMembers = [], onCreateTeam }) => {
   const [teamName, setTeamName] = useState('')
   const [selectedMembers, setSelectedMembers] = useState([])
   const [teamImage, setTeamImage] = useState('')

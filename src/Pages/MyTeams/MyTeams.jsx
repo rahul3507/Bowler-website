@@ -177,7 +177,7 @@ const MyTeams = () => {
 
       {/* Teams List */}
       <div className="p-6 space-y-2 md:space-y-4">
-        {teams.map((team, index) => (
+        {teams.map((team) => (
           <TeamCard key={team.id} name={team.name} members={team.members.length} time={team.time} img={team.img} />
         ))}
       </div>
