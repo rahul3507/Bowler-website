@@ -75,7 +75,7 @@ export const ModalBody = ({
           }}
           animate={{
             opacity: 1,
-            backdropFilter: "blur(10px)",
+            backdropFilter: "blur(0px)",
           }}
           exit={{
             opacity: 0,
@@ -153,7 +153,7 @@ const Overlay = ({
         opacity: 0,
       }}
       animate={{
-        opacity: 1,
+        opacity: 0.7,
         backdropFilter: "blur(10px)",
       }}
       exit={{

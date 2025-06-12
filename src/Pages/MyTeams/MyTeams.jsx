@@ -39,11 +39,9 @@ const MyTeams = () => {
           <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200">{teams.length} Teams</h2>
           
           <Modal>
-            <ModalTrigger className='bg-transparent'>
-              <Button className="bg-primary text-base md:text-lg hover:bg-primary/90 text-button-text gap-2">
-                <Plus size={18} />
-                Create new Team
-              </Button>
+            <ModalTrigger className='bg-primary cursor-pointer flex text-base md:text-lg hover:bg-primary/90 text-button-text gap-2'>
+                <Plus size={18} className='m-auto' />
+                Create new Team 
             </ModalTrigger>
             <ModalBody>
               <ModalContent>
