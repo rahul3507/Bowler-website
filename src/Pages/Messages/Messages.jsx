@@ -8,11 +8,12 @@ import React, { useState } from 'react'
 import SingleMessage from './SingleMessage'
 
 const Messages = () => {
+  const [activeFilter, setActiveFilter] = useState('All');
   const [messages, setMessages] = useState([
     {
       id: 1,
       name: "Downtown Lanes",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "New Tournament Announced!",
       sendingTime: "1 day ago",
       senderType: "Bowling Centers",
@@ -23,7 +24,7 @@ const Messages = () => {
     {
       id: 2,
       name: "Strike Pro Equipment",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "New Ball Collection Available",
       sendingTime: "2 days ago",
       senderType: "Manufacturers",
@@ -34,7 +35,7 @@ const Messages = () => {
     {
       id: 3,
       name: "System Notification",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "Profile Update Required",
       sendingTime: "3 days ago",
       senderType: "System Messages",
@@ -45,7 +46,7 @@ const Messages = () => {
     {
       id: 4,
       name: "Sunset Bowling Center",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "League Registration Open",
       sendingTime: "5 days ago",
       senderType: "Bowling Centers",
@@ -56,7 +57,7 @@ const Messages = () => {
     {
       id: 5,
       name: "Brunswick Corp",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "Equipment Maintenance Tips",
       sendingTime: "1 week ago",
       senderType: "Manufacturers",
@@ -67,7 +68,7 @@ const Messages = () => {
     {
       id: 6,
       name: "Galaxy Lanes",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "Special Event This Weekend",
       sendingTime: "1 week ago",
       senderType: "Bowling Centers",
@@ -78,7 +79,7 @@ const Messages = () => {
     {
       id: 7,
       name: "Storm Products",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "Product Warranty Extension",
       sendingTime: "2 weeks ago",
       senderType: "Manufacturers",
@@ -89,7 +90,7 @@ const Messages = () => {
     {
       id: 8,
       name: "BowlersNetwork",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "New Feature Available",
       sendingTime: "2 weeks ago",
       senderType: "System Messages",
@@ -100,7 +101,7 @@ const Messages = () => {
     {
       id: 9,
       name: "Championship Lanes",
-      profileImage: "https://assets.aceternity.com/manu.png",
+      profileImage: "https://via.placeholder.com/40",
       title: "Youth Program Starting Soon",
       sendingTime: "3 weeks ago",
       senderType: "Bowling Centers",
@@ -125,6 +126,15 @@ const Messages = () => {
       )
     );
   };
+
+  const handleFilterChange = (filter) => {
+    setActiveFilter(filter);
+  };
+
+  const filteredMessages = messages.filter(message => {
+    if (activeFilter === 'All') return true;
+    return message.senderType === activeFilter;
+  });
 
   return (
     <div className="flex-1 h-screen overflow-y-auto">
@@ -181,9 +191,36 @@ const Messages = () => {
             </div>
             {/* Category Tabs */}
             <div className="flex gap-2">
-              <Button className="px-3 md:px-6 py-2 md:py-3 bg-transparent hover:bg-button-bg/70 hover:text-white text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">All</Button>
-              <Button className="px-2 md:px-6 py-2 md:py-3 bg-transparent hover:bg-button-bg/70 hover:text-white text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">Bowling Centers</Button>
-              <Button className="px-2 md:px-6 py-2 md:py-3 bg-transparent hover:bg-button-bg/70 hover:text-white text-sm md:text-base text-secondary dark:text-gray-300 border-gray-300">Manufacturers</Button>
+              <Button 
+                className={`px-3 md:px-6 py-2 md:py-3 text-sm md:text-base border-gray-300 ${
+                  activeFilter === 'All' 
+                    ? 'bg-button-bg text-button-text hover:bg-button-bg/80' 
+                    : 'bg-transparent hover:bg-button-bg/70 hover:text-white text-secondary dark:text-gray-300'
+                }`}
+                onClick={() => handleFilterChange('All')}
+              >
+                All
+              </Button>
+              <Button 
+                className={`px-2 md:px-6 py-2 md:py-3 text-sm md:text-base border-gray-300 ${
+                  activeFilter === 'Bowling Centers' 
+                    ? 'bg-button-bg text-button-text hover:bg-button-bg/80' 
+                    : 'bg-transparent hover:bg-button-bg/70 hover:text-white text-secondary dark:text-gray-300'
+                }`}
+                onClick={() => handleFilterChange('Bowling Centers')}
+              >
+                Bowling Centers
+              </Button>
+              <Button 
+                className={`px-2 md:px-6 py-2 md:py-3 text-sm md:text-base border-gray-300 ${
+                  activeFilter === 'Manufacturers' 
+                    ? 'bg-button-bg text-button-text hover:bg-button-bg/80' 
+                    : 'bg-transparent hover:bg-button-bg/70 hover:text-white text-secondary dark:text-gray-300'
+                }`}
+                onClick={() => handleFilterChange('Manufacturers')}
+              >
+                Manufacturers
+              </Button>
             </div>
 
             {/* main */}
@@ -265,8 +302,8 @@ const Messages = () => {
               </div>
 
               {/* Messages List */}
-              <div className="flex-1 overflow-auto gap-2">
-                {messages.map((message) => (
+              <div className="flex-1 overflow-auto">
+                {filteredMessages.map((message) => (
                   <SingleMessage 
                     key={message.id} 
                     message={message}
