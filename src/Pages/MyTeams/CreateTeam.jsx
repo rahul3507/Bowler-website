@@ -54,7 +54,10 @@ const CreateTeam = () => {
                     <label className="block text-sm md:text-lg font-medium text-secondary">
                         Upload Image
                     </label>
-                    <FileUpload  />
+                    <div className='border  border-gray-200 w-full '>
+                        <FileUpload  />
+                    </div>
+                    
                     
                 </div>
 
