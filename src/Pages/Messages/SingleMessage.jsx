@@ -1,14 +1,28 @@
 import { Flag, MoreHorizontal, MoreHorizontalIcon, MoreVertical } from "lucide-react";
 
-function SingleMessage() {
+function SingleMessage({ message, onMessageClick, onFlagToggle }) {
+  const handleMessageClick = () => {
+    onMessageClick(message.id);
+  };
+
+  const handleFlagClick = (e) => {
+    e.stopPropagation(); // Prevent triggering message click
+    onFlagToggle(message.id);
+  };
+
   return (
-    <div className="border-b border-[#d2d5df] p-6">
+    <div 
+      className={`border border-gray-200 mb-2 p-2 md:p-6 cursor-pointer ${
+        message.read ? 'bg-transparent' : 'bg-gray-100'
+      }`}
+      onClick={handleMessageClick}
+    >
       <div className="flex justify-between">
         <div className="flex gap-4 w-full">
-          <div className="w-10 h-10 rounded-full bg-[#d9d9d9] flex-shrink-0">
+          <div className="w-10 md:w-12 md:h-12 h-10 mt-1 rounded-full bg-[#d9d9d9] flex-shrink-0">
             <img
-              src="https://via.placeholder.com/40"
-              alt="Downtown Lanes"
+              src={message.profileImage}
+              alt={message.name}
               className="w-full h-full rounded-full object-cover"
             />
           </div>
@@ -17,17 +31,22 @@ function SingleMessage() {
               {/* Left */}
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-semibold text-primary text-base md:text-xl">Downtown Lanes</h3>
-                  <span className="text-xs md:text-sm text-tertiary">Sent to 15 players</span>
+                  <h3 className="font-semibold text-primary text-base md:text-xl">{message.name}</h3>
+                  <span className="text-xs md:text-sm text-tertiary">{message.senderType}</span>
                 </div>
-                <h4 className="font-semibold text-primary text-base md:text-xl">New Tournament Announced!</h4>
+                <h4 className="font-semibold text-primary text-base md:text-xl">{message.title}</h4>
               </div>
               {/* right */}
               <div className="flex justify-end w-full md:w-fit items-end gap-2 md:gap-4">
-                <span className="text-xs md:text-sm text-tertiary">1 day ago</span>
+                <span className="text-xs md:text-sm text-tertiary">{message.sendingTime}</span>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#8bc342]"></div>
-                  <button className="bg-transparent cursor-pointer text-[#E5940C] hover:text-[#E5940C]">
+                  <div className={`w-2 h-2 rounded-full ${message.read ? 'bg-transparent' : 'bg-[#8bc342]'}`}></div>
+                  <button 
+                    className={`bg-transparent cursor-pointer ${
+                      message.flag ? 'text-red-500' : 'text-[#E5940C]'
+                    } hover:opacity-80`}
+                    onClick={handleFlagClick}
+                  >
                     <Flag className="w-4 h-4" />
                   </button>
                   <button className="text-primary cursor-pointer bg-transparent hover:text-primary/90">
@@ -36,8 +55,8 @@ function SingleMessage() {
                 </div>
               </div>
             </div>
-            <p className="text-sm w-full  md:text-base text-secondary mt-1">
-              Join us for out Summer Classic tournament on June 10th. Early registration discounts available!
+            <p className="text-sm w-full md:text-base text-secondary mt-1">
+              {message.content}
             </p>
           </div>
         </div>
@@ -46,4 +65,5 @@ function SingleMessage() {
     </div>
   )
 }
+
 export default SingleMessage;

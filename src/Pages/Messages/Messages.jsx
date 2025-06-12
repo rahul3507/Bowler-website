@@ -4,10 +4,128 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Switch } from '@/components/ui/switch'
 import { Search } from 'lucide-react'
-import React from 'react'
+import React, { useState } from 'react'
 import SingleMessage from './SingleMessage'
 
 const Messages = () => {
+  const [messages, setMessages] = useState([
+    {
+      id: 1,
+      name: "Downtown Lanes",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "New Tournament Announced!",
+      sendingTime: "1 day ago",
+      senderType: "Bowling Centers",
+      read: false,
+      flag: false,
+      content: "Join us for our Summer Classic tournament on June 10th. Early registration discounts available!"
+    },
+    {
+      id: 2,
+      name: "Strike Pro Equipment",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "New Ball Collection Available",
+      sendingTime: "2 days ago",
+      senderType: "Manufacturers",
+      read: false,
+      flag: false,
+      content: "Check out our latest collection of professional bowling balls with advanced core technology."
+    },
+    {
+      id: 3,
+      name: "System Notification",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "Profile Update Required",
+      sendingTime: "3 days ago",
+      senderType: "System Messages",
+      read: true,
+      flag: false,
+      content: "Please update your profile information to continue receiving personalized recommendations."
+    },
+    {
+      id: 4,
+      name: "Sunset Bowling Center",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "League Registration Open",
+      sendingTime: "5 days ago",
+      senderType: "Bowling Centers",
+      read: false,
+      flag: true,
+      content: "Fall league registration is now open. Join us for competitive bowling every Tuesday evening."
+    },
+    {
+      id: 5,
+      name: "Brunswick Corp",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "Equipment Maintenance Tips",
+      sendingTime: "1 week ago",
+      senderType: "Manufacturers",
+      read: true,
+      flag: false,
+      content: "Learn how to properly maintain your bowling equipment for optimal performance and longevity."
+    },
+    {
+      id: 6,
+      name: "Galaxy Lanes",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "Special Event This Weekend",
+      sendingTime: "1 week ago",
+      senderType: "Bowling Centers",
+      read: false,
+      flag: false,
+      content: "Join us for cosmic bowling this Saturday night with special lighting and music."
+    },
+    {
+      id: 7,
+      name: "Storm Products",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "Product Warranty Extension",
+      sendingTime: "2 weeks ago",
+      senderType: "Manufacturers",
+      read: true,
+      flag: true,
+      content: "We're extending the warranty on all Storm bowling balls purchased in the last 6 months."
+    },
+    {
+      id: 8,
+      name: "BowlersNetwork",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "New Feature Available",
+      sendingTime: "2 weeks ago",
+      senderType: "System Messages",
+      read: false,
+      flag: false,
+      content: "Try our new score tracking feature to monitor your progress over time."
+    },
+    {
+      id: 9,
+      name: "Championship Lanes",
+      profileImage: "https://assets.aceternity.com/manu.png",
+      title: "Youth Program Starting Soon",
+      sendingTime: "3 weeks ago",
+      senderType: "Bowling Centers",
+      read: true,
+      flag: false,
+      content: "Enroll your kids in our youth bowling program starting next month. Ages 8-16 welcome."
+    }
+  ]);
+
+  const handleMessageClick = (messageId) => {
+    setMessages(prevMessages =>
+      prevMessages.map(message =>
+        message.id === messageId ? { ...message, read: true } : message
+      )
+    );
+  };
+
+  const handleFlagToggle = (messageId) => {
+    setMessages(prevMessages =>
+      prevMessages.map(message =>
+        message.id === messageId ? { ...message, flag: !message.flag } : message
+      )
+    );
+  };
+
   return (
     <div className="flex-1 h-screen overflow-y-auto">
         
@@ -147,9 +265,14 @@ const Messages = () => {
               </div>
 
               {/* Messages List */}
-              <div className="flex-1 overflow-auto">
-                {[1, 2, 3, 4].map((i) => (
-                  <SingleMessage key={i} />
+              <div className="flex-1 overflow-auto gap-2">
+                {messages.map((message) => (
+                  <SingleMessage 
+                    key={message.id} 
+                    message={message}
+                    onMessageClick={handleMessageClick}
+                    onFlagToggle={handleFlagToggle}
+                  />
                 ))}
               </div>
 
