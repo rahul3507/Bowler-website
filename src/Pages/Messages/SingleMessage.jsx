@@ -12,7 +12,7 @@ function SingleMessage({ message, onMessageClick, onFlagToggle }) {
 
   return (
     <div 
-      className={`border border-gray-200 mb-2 p-2 md:p-6 cursor-pointer ${
+      className={`border border-gray-200 rounded-xl hover:shadow-lg transition-shadow duration-200 mb-2 p-2 md:p-6 cursor-pointer ${
         message.read ? 'bg-transparent' : 'bg-gray-100'
       }`}
       onClick={handleMessageClick}
