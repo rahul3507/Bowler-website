@@ -35,7 +35,7 @@ const Profile = () => {
 
         {/* Tabs */}
         <div className="px-6 pt-2 md:pt-6">
-          <div className="flex flex-wrap justify-between md:justify-start gap-1 md:gap-2 mb-2 md:mb-6">
+          <div className="flex flex-wrap justify-center md:justify-start   gap-1 md:gap-2 mb-2 md:mb-6">
             {tabs.map((tab) => (
               <NavLink
                 to={tab.to}
