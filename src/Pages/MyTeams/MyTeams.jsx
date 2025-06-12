@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input'
 import { Plus, Search } from 'lucide-react'
 import React from 'react'
 import TeamCard from './TeamCard'
+import { Modal, ModalBody, ModalContent, ModalTrigger } from '@/components/ui/animated-modal'
 
 const MyTeams = () => {
   const teams = [
@@ -35,11 +36,22 @@ const MyTeams = () => {
 
         {/* Teams List Header */}
         <div className="px-6 pt-4 pb-0  md:pb-4 flex justify-between items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200">10 Teams</h2>
-          <Button className="bg-primary text-base md:text-lg hover:bg-primary/90 text-button-text gap-2">
-            <Plus size={18} />
-            Create new Team
-          </Button>
+          <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200">{teams.length} Teams</h2>
+          
+          <Modal>
+            <ModalTrigger className='bg-transparent'>
+              <Button className="bg-primary text-base md:text-lg hover:bg-primary/90 text-button-text gap-2">
+                <Plus size={18} />
+                Create new Team
+              </Button>
+            </ModalTrigger>
+            <ModalBody>
+              <ModalContent>
+                <div>heloo</div>
+              </ModalContent>
+            </ModalBody>
+          </Modal>
+              
         </div>
 
         {/* Teams List */}
