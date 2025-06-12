@@ -67,7 +67,7 @@ export const FileUpload = ({
         </div>
         <div className="flex flex-col items-center justify-center">
           
-          <div className="relative w-full  max-w-xl mx-auto">
+          <div className="relative w-full   mx-auto">
             {files.length > 0 &&
               files.map((file, idx) => (
                 <motion.div
