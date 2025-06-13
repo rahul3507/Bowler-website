@@ -53,7 +53,7 @@ const newsFeed = [
     profileImg: "/profile2.png",
     postingTime: "5 hours ago",
     description: "Check out our latest bowling tips and tricks to improve your game! 🎳 Whether you're a beginner or a seasoned pro, there's always something new to learn. #BowlingTips",
-    newsImage: "/newsfeed2.png",
+    newsImage: "/newsfeed.png",
     totalLove: 15,
     comments: 8,
     totalShare: 3
@@ -63,7 +63,107 @@ const newsFeed = [
     profileImg: "/profile3.png",
     postingTime: "1 day ago",
     description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
-    newsImage: "/newsfeed3.png",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
+    totalLove: 20,
+    comments: 12,
+    totalShare: 5
+  },
+  {
+    name: "Pin Pals",
+    profileImg: "/profile3.png",
+    postingTime: "1 day ago",
+    description: "Join us for our weekly bowling tournament! Great prizes and fun for all skill levels. Don't miss out! #BowlingTournament",
+    newsImage: "/newsfeed.png",
     totalLove: 20,
     comments: 12,
     totalShare: 5
@@ -154,8 +254,8 @@ const HomePage = () => {
               <Link to="/dashboard/players" state={{ players: amateurePlayers, title: "News Feed" }}>See All</Link>
             </Button>
           </div>
-          <div className="flex flex-wrap gap-4">
-            {newsFeed.map((news, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+            {newsFeed.slice(0, 4).map((news, index) => (
               <NewsCard key={index} news={news} />
             ))}
           </div>

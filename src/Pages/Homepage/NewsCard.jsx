@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, MessageCircle, Share, Plus } from "lucide-react";
+import { Heart, MessageCircle, Share, Plus, Share2, MessageSquareMore } from "lucide-react";
 
 const NewsCard = ({ news }) => {
   const { name, profileImg, postingTime, description, newsImage, totalLove, comments, totalShare } = news;
@@ -13,7 +13,7 @@ const NewsCard = ({ news }) => {
   const shortDescription = words.slice(0, 30).join(' ') + (isLongDescription ? '...' : '');
   
   return (
-    <Card className="bg-white max-w-[360px] h-[450px]">
+    <Card className="bg-white  h-[450px]">
       <CardContent className="px-4 overflow-y-auto ">
         <div className="flex items-center gap-2 mb-3 ">
           <div className="h-6 w-6 md:h-8 md:w-8 rounded-full overflow-hidden bg-gray-200">
@@ -62,11 +62,11 @@ const NewsCard = ({ news }) => {
             {totalLove}
           </Button>
           <Button variant="ghost" size="sm" className="p-0 h-auto text-secondary py-1 border-none bg-transparent">
-            <MessageCircle className="w-4 h-4 mr-1" />
+            <MessageSquareMore  className="w-4 h-4 mr-1" />
             {comments}
           </Button>
           <Button variant="ghost" size="sm" className="p-0 h-auto text-secondary py-1 border-none bg-transparent">
-            <Share className="w-4 h-4 mr-1" />
+            <Share2  className="w-4 h-4 mr-1" />
             {totalShare}
           </Button>
         </div>
