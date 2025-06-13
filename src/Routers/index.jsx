@@ -22,6 +22,7 @@ import BowlingStatistics from '@/Pages/Profile/BowlingStatistics';
 import Privacy from '@/Pages/Profile/Privacy';
 import Settings from '@/Pages/Profile/Settings';
 import Media from '@/Pages/Profile/Media';
+import Players from '@/Pages/Homepage/Players';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -42,6 +43,7 @@ const AppRoutes = () => {
               <Route path="signin" element={<SignIn />} />
               <Route path="dashboard" element={<Dashboard/>}>
                 <Route index element={<HomePage />} />
+                <Route path='players' element={<Players/>}/>
                 <Route path="overview" element={<Overview />} />
                 <Route path="myteams" element={<MyTeams />} />
                 <Route path="analytics" element={<Analytics />} />
