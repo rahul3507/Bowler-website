@@ -42,7 +42,7 @@ const newsFeed = [
     name: "Bowling Fanatics",
     profileImg: "/profile1.png",
     postingTime: "2 hours ago",
-    description: "Hello, friends! 🌞 With the sun shining bright and temperatures rising, there's no better way to beat the heat than with a refreshing dip in the pool! 🏊‍♀️ #SummerVibes",
+    description: "Hello, asadsasda asdssasd as friends! 🌞 sdf sadfassssss ssssssssss sssss sssssss ssssss sss With the sun shining bright and temperatures rising, there's no better way to beat the heat than with a refreshing dip in the pool! 🏊‍♀️ #SummerVibes",
     newsImage: "/newsfeed.png",
     totalLove: 10,
     comments: 5,
@@ -251,7 +251,7 @@ const HomePage = () => {
               variant="link"
               className="bg-transparent border-none text-sm text-[#3B82F6] md:text-lg p-0"
             >
-              <Link to="/dashboard/players" state={{ players: amateurePlayers, title: "News Feed" }}>See All</Link>
+              <Link to="/dashboard/newsfeed" state={{ newsFeed: newsFeed }}>See All</Link>
             </Button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">

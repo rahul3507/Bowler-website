@@ -14,7 +14,8 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
     const location = useLocation();
     const isHomeActive = () => {
       return (location.pathname.includes('/dashboard'),
-                location.pathname.includes('/dashboard/players'))       
+                location.pathname.includes('/dashboard/players'),
+              location.pathname.includes('/dashboard/newsfeed'))       
       };
     const isOverviewActive = () => {
       return (location.pathname.includes('/dashboard/overview'))       

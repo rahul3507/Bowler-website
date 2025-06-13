@@ -1,8 +1,12 @@
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
 import React from 'react'
+import { useLocation } from 'react-router-dom'
+import NewsCard from './NewsCard'
 
 const NewsFeed = () => {
+    const location = useLocation()
+  const newsFeed = location.state?.newsFeed || []
   return (
     <div className='flex-1 h-screen overflow-y-auto'>
       {/* Header */}
@@ -20,7 +24,14 @@ const NewsFeed = () => {
           </div>
         </div>
       </div>
-    
+
+        <div className="px-6 pt-2 md:pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+                    {newsFeed.map((news, index) => (
+                    <NewsCard key={index} news={news} />
+                    ))}
+            </div>
+        </div>
     
     </div>
   )

@@ -9,12 +9,12 @@ const NewsCard = ({ news }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
   const words = description.split(' ');
-  const isLongDescription = words.length > 30;
-  const shortDescription = words.slice(0, 30).join(' ') + (isLongDescription ? '...' : '');
+  const isLongDescription = words.length > 25;
+  const shortDescription = words.slice(0, 25).join(' ') + (isLongDescription ? '...' : '');
   
   return (
     <Card className="bg-white  h-[450px]">
-      <CardContent className="px-4 overflow-y-auto ">
+      <CardContent className="px-4  ">
         <div className="flex items-center gap-2 mb-3 ">
           <div className="h-6 w-6 md:h-8 md:w-8 rounded-full overflow-hidden bg-gray-200">
             <img
@@ -33,13 +33,13 @@ const NewsCard = ({ news }) => {
           </Button>
         </div>
         
-        <div className="mb-3">
+        <div className="mb-3 max-h-20 overflow-y-auto">
           <p className="text-xs md:text-sm text-secondary">
             {isExpanded ? description : shortDescription}
             {isLongDescription && (
               <Button
                 variant="link"
-                className="text-[#3b82f6] p-0 h-auto inline"
+                className="text-[#3b82f6] bg-transparent border-none p-0 pl-2 h-auto inline"
                 onClick={() => setIsExpanded(!isExpanded)}
               >
                 {isExpanded ? ' See less' : ' see more'}

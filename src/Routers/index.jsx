@@ -23,6 +23,7 @@ import Privacy from '@/Pages/Profile/Privacy';
 import Settings from '@/Pages/Profile/Settings';
 import Media from '@/Pages/Profile/Media';
 import Players from '@/Pages/Homepage/Players';
+import NewsFeed from '@/Pages/Homepage/NewsFeed';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -44,6 +45,7 @@ const AppRoutes = () => {
               <Route path="dashboard" element={<Dashboard/>}>
                 <Route index element={<HomePage />} />
                 <Route path='players' element={<Players/>}/>
+                <Route path='newsfeed' element={<NewsFeed/>}/>
                 <Route path="overview" element={<Overview />} />
                 <Route path="myteams" element={<MyTeams />} />
                 <Route path="analytics" element={<Analytics />} />
