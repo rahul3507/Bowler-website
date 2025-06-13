@@ -9,6 +9,7 @@ import NewsCard from "./NewsCard"
 import { Card } from "react-bootstrap"
 import { useState } from "react"
 import BowlingCard from "./BowlingCard"
+import ManufactureCard from "./ManufactureCard"
 
 const proPlayers = [
   { name: "Jason Belmonte", image: "/player.png", level: 8, pac: [[97, 95, 93], [92, 90, 88]] },
@@ -185,8 +186,22 @@ const bowlingCenters = [
   { image: "/Bowling.png", title: "Bowling Center 9", description: "Description 9" },
   { image: "/Bowling.png", title: "Bowling Center 10", description: "Description 10" },
 ];
+
+const manufactures = [
+  { image: "/Bowling.png", title: "Aster Medical" },
+  { image: "/manufacture.png", title: "Bowling Center 2" },
+  { image: "/manufacture.png", title: "Bowling Center 3" },
+  { image: "/manufacture.png", title: "Bowling Center 4" },
+  { image: "/manufacture.png", title: "Bowling Center 5" },
+  { image: "/manufacture.png", title: "Bowling Center 6" },
+  { image: "/manufacture.png", title: "Bowling Center 7" },
+  { image: "/manufacture.png", title: "Bowling Center 8" },
+  { image: "/manufacture.png", title: "Bowling Center 9" },
+  { image: "/manufacture.png", title: "Bowling Center 10" },
+];
 const HomePage = () => {
    const [showAllBowlingCenters, setShowAllBowlingCenters] = useState(false);
+   const [showAllManufacture, setShowAllManufacture] = useState(false);
   return (
     <div className='flex-1 h-screen overflow-y-auto'>
       {/* Header */}
@@ -293,6 +308,27 @@ const HomePage = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8 ">
             {(showAllBowlingCenters ? bowlingCenters : bowlingCenters.slice(0, 5)).map((center, index) => (
               <BowlingCard key={index} image={center.image} title={center.title} description={center.description} />
+            ))}
+          
+          </div>
+        </div>
+
+        {/* Manufacture  */}
+
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl md:text-3xl font-bold text-primary">Manufacture</h2>
+            <Button
+              variant="link"
+              className="bg-transparent border-none text-sm text-[#3B82F6] md:text-lg p-0"
+              onClick={() => setShowAllManufacture(!showAllManufacture)}
+            >
+              {showAllManufacture ? 'Show Less' : 'See All'}
+            </Button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8 ">
+            {(showAllManufacture ? manufactures : manufactures.slice(0, 5)).map((center, index) => (
+              <ManufactureCard key={index} image={center.image} title={center.title}  />
             ))}
           
           </div>
