@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -49,7 +48,7 @@ export const SidebarBody = (props) => {
   return (
     <>
       <DesktopSidebar {...props} />
-      <MobileSidebar {...(props)} />
+      <MobileSidebar {...props} />
     </>
   );
 };
@@ -61,21 +60,23 @@ export const DesktopSidebar = ({
 }) => {
   const { open, setOpen, animate } = Sidebar2();
   return (
-    <>
-      <motion.div
-        className={cn(
-          "h-full px-4 py-4 hidden  md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] shrink-0",
-          className
-        )}
-        animate={{
-          width: animate ? (open ? "300px" : "60px") : "300px",
-        }}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        {...props}>
-        {children}
-      </motion.div>
-    </>
+    <motion.div
+      className={cn(
+        "h-full px-4 py-4 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 shrink-0",
+        className
+      )}
+      initial={{ width: animate ? "60px" : "300px" }} // Explicitly set initial width to closed state
+      animate={{ width: animate ? (open ? "300px" : "60px") : "300px" }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      onMouseEnter={() => setOpen(true)}
+      onMouseOver={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onClick={() => setOpen(true)}
+      
+      {...props}
+    >
+      {children}
+    </motion.div>
   );
 };
 
@@ -86,44 +87,41 @@ export const MobileSidebar = ({
 }) => {
   const { open, setOpen, animate } = Sidebar2();
   return (
-    <>
-      <div
-        className={cn(
-          "h-10 px-0 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
-        )}
-        {...props}>
-        <div className="flex justify-end z-20 w-full">
-          <IconMenu2
-            className="text-neutral-800 dark:text-neutral-200"
-            onClick={() => setOpen(!open)} />
-        </div>
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 ,
-                width: animate ? (open ? "200px" : "60px") : "200px",
-              }}
-              exit={{ x: "-100%", opacity: 0 }}
-              transition={{
-                duration: 0.3,
-                ease: "easeInOut",
-              }}
-              className={cn(
-                "fixed h-full w-full inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col justify-between",
-                className
-              )}>
-              <div
-                className="absolute right-10 top-10 z-50 text-neutral-800 dark:text-neutral-200"
-                onClick={() => setOpen(!open)}>
-                <IconX />
-              </div>
-              {children}
-            </motion.div>
-          )}
-        </AnimatePresence>
+    <div
+      className={cn(
+        "h-10 px-0 py-4 flex flex-row md:hidden items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
+      )}
+      {...props}
+    >
+      <div className="flex justify-end z-20 w-full">
+        <IconMenu2
+          className="text-neutral-800 dark:text-neutral-200"
+          onClick={() => setOpen(!open)}
+        />
       </div>
-    </>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1, width: animate ? "200px" : "200px" }}
+            exit={{ x: "-100%", opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className={cn(
+              "fixed h-full w-full inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col justify-between",
+              className
+            )}
+          >
+            <div
+              className="absolute right-10 top-10 z-50 text-neutral-800 dark:text-neutral-200"
+              onClick={() => setOpen(!open)}
+            >
+              <IconX />
+            </div>
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
@@ -136,15 +134,17 @@ export const SidebarLink = ({
   return (
     <a
       href={link.href}
-      className={cn("flex items-center text-white justify-start gap-2  group/sidebar py-2", className)}
-      {...props}>
+      className={cn("flex items-center text-white justify-start gap-2 group/sidebar py-2", className)}
+      {...props}
+    >
       {link.icon}
       <motion.span
         animate={{
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
           opacity: animate ? (open ? 1 : 0) : 1,
         }}
-        className="text-white dark:text-neutral-200 text-sm md:text-base group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0">
+        className="text-white dark:text-neutral-200 text-sm md:text-base group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+      >
         {link.label}
       </motion.span>
     </a>
