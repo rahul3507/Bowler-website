@@ -157,7 +157,7 @@ const MyTeams = () => {
         
         <Modal>
           <ModalTrigger 
-            className='bg-button-bg cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2'
+            className='bg-button-bg py-1 px-2 md:px-4 md:py-1.5 cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2'
             
           >
             <Plus size={18} className='m-auto' />

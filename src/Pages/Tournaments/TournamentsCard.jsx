@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import { MapPin, Calendar, Users, Clock, DollarSign } from "lucide-react"
 
 export default function TournamentsCard({ event }) {
@@ -43,12 +44,12 @@ export default function TournamentsCard({ event }) {
         {event.status === "cancelled" && <div className={`mb-4 ${event.cancelColor || "text-red-500"}`}>Cancelled</div>}
 
         <div className="flex gap-3">
-          <button className="flex-1 bg-[#8bc342] hover:bg-[#7ab33b] text-white py-2 rounded-md">View Details</button>
+          <Button className="flex-1 bg-button-bg hover:bg-button-bg/90 text-white py-2 rounded-md">View Details</Button>
 
           {event.status !== "cancelled" && (
-            <button className="flex-1 border border-[#ee2e55] text-[#ee2e55] hover:bg-[#ee2e55] hover:text-white py-2 rounded-md">
+            <Button className="flex-1 border bg-transparent border-custom-red text-custom-red hover:bg-gray-100  py-2 rounded-md">
               Cancel Registration
-            </button>
+            </Button>
           )}
         </div>
       </div>
