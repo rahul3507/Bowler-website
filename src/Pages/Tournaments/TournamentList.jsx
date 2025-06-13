@@ -3,6 +3,7 @@
 import { useState } from "react"
 
 import TournamentsCard from "./TournamentsCard"
+import { Button } from "@/components/ui/button"
 
 export default function TournamentsList() {
   const [activeTab, setActiveTab] = useState("all")
@@ -127,10 +128,10 @@ export default function TournamentsList() {
         <div className="flex flex-col md:flex-row gap-6">
                 {/* Filters Panel */}
             <div className="w-full md:w-[300px] border border-[#d2d5df] rounded-md p-5">
-                <h3 className="text-lg font-bold text-[#1e2d5e] mb-4">Filters</h3>
+                <h3 className="text-base md:text-xl font-bold text-primary mb-4">Filters</h3>
 
                 <div className="mb-6">
-                <h4 className="text-[#596050] font-medium mb-3">Content Type</h4>
+                <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">Content Type</h4>
                 <div className="space-y-2">
                     <CheckboxItem
                     id="singles"
@@ -166,7 +167,7 @@ export default function TournamentsList() {
                 </div>
 
                 <div className="mb-6">
-                <h4 className="text-[#596050] font-medium mb-3">Access Level</h4>
+                <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">Access Level</h4>
                 <div className="space-y-2">
                     <CheckboxItem
                     id="any"
@@ -185,8 +186,8 @@ export default function TournamentsList() {
 
                 <div className="mb-6">
                 <div className="flex justify-between mb-1">
-                    <h4 className="text-[#596050] font-medium">Duration</h4>
-                    <span className="text-sm text-[#596050]">2-60+ min</span>
+                    <h4 className="text-secondary text-sm md:text-lg font-medium ">Duration</h4>
+                    <span className="text-sm text-secondary">2-60+ min</span>
                 </div>
                 <input
                     type="range"
@@ -199,7 +200,7 @@ export default function TournamentsList() {
                 </div>
 
                 <div className="mb-6">
-                <h4 className="text-[#596050] font-medium mb-3">Upload Date</h4>
+                <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">Upload Date</h4>
                 <div className="space-y-2">
                     <CheckboxItem
                     id="beginner"
@@ -223,13 +224,13 @@ export default function TournamentsList() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                <button className="bg-[#8bc342] hover:bg-[#7ab33b] text-white py-2 px-4 rounded-md">Apply Filters</button>
-                <button
+                <Button className="bg-[#8bc342] hover:bg-[#7ab33b] text-white py-2 px-4 rounded-md">Apply Filters</Button>
+                <Button
                     onClick={resetFilters}
-                    className="text-[#1e2d5e] py-2 px-4 rounded-md border border-[#d2d5df] hover:bg-gray-50"
+                    className="text-primary bg-transparent py-2 px-4 rounded-md border border-[#d2d5df] hover:bg-gray-100"
                 >
                     Reset
-                </button>
+                </Button>
                 </div>
             </div>
 
