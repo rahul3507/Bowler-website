@@ -7,6 +7,8 @@ import { Link } from "react-router-dom"
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import NewsCard from "./NewsCard"
 import { Card } from "react-bootstrap"
+import { useState } from "react"
+import BowlingCard from "./BowlingCard"
 
 const proPlayers = [
   { name: "Jason Belmonte", image: "/player.png", level: 8, pac: [[97, 95, 93], [92, 90, 88]] },
@@ -171,7 +173,20 @@ const newsFeed = [
   },
 ];
 
+const bowlingCenters = [
+  { image: "/Bowling.png", title: "Aster Medical", description: "Jamiu Jimoh" },
+  { image: "/Bowling.png", title: "Bowling Center 2", description: "Description 2" },
+  { image: "/Bowling.png", title: "Bowling Center 3", description: "Description 3" },
+  { image: "/Bowling.png", title: "Bowling Center 4", description: "Description 4" },
+  { image: "/Bowling.png", title: "Bowling Center 5", description: "Description 5" },
+  { image: "/Bowling.png", title: "Bowling Center 6", description: "Description 6" },
+  { image: "/Bowling.png", title: "Bowling Center 7", description: "Description 7" },
+  { image: "/Bowling.png", title: "Bowling Center 8", description: "Description 8" },
+  { image: "/Bowling.png", title: "Bowling Center 9", description: "Description 9" },
+  { image: "/Bowling.png", title: "Bowling Center 10", description: "Description 10" },
+];
 const HomePage = () => {
+   const [showAllBowlingCenters, setShowAllBowlingCenters] = useState(false);
   return (
     <div className='flex-1 h-screen overflow-y-auto'>
       {/* Header */}
@@ -268,30 +283,18 @@ const HomePage = () => {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl md:text-3xl font-bold text-primary">Bowling Center</h2>
             <Button
-              asChild
               variant="link"
               className="bg-transparent border-none text-sm text-[#3B82F6] md:text-lg p-0"
+              onClick={() => setShowAllBowlingCenters(!showAllBowlingCenters)}
             >
-              <Link to="/dashboard/newsfeed" state={{ newsFeed: newsFeed }}>See All</Link>
+              {showAllBowlingCenters ? 'Show Less' : 'See All'}
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-            
-            <Card style={{ width: '18rem' }} className="border border-gray-200">
-              <Card.Img variant="top" src="/Bowling.png" />
-              <Card.Body className="bg-[#CFD1CD] p-3">
-                <Card.Title>
-                  <div className="flex gap-2 text-sm md:text-lg font-semibold text-secondary">
-                    Aster Medical 
-                    <BadgeCheck className="text-blue-500 w-6 h-6"/>
-                  </div>
-                </Card.Title>
-                <Card.Text className="text-tertiary text-xs">
-                  Jamiu Jimoh
-                </Card.Text>
-                
-              </Card.Body>
-            </Card>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8 ">
+            {(showAllBowlingCenters ? bowlingCenters : bowlingCenters.slice(0, 5)).map((center, index) => (
+              <BowlingCard key={index} image={center.image} title={center.title} description={center.description} />
+            ))}
+          
           </div>
         </div>
 
