@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Heart, MessageCircle, Plus, Search, Share } from "lucide-react"
+import { BadgeCheck, Heart, MessageCircle, Plus, Search, Share } from "lucide-react"
 import PlayerCard from "./PlayerCard"
 import { Link } from "react-router-dom"
-import { Card, CardContent } from "@/components/ui/card"
+
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import NewsCard from "./NewsCard"
+import { Card } from "react-bootstrap"
 
 const proPlayers = [
   { name: "Jason Belmonte", image: "/player.png", level: 8, pac: [[97, 95, 93], [92, 90, 88]] },
@@ -276,19 +277,20 @@ const HomePage = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
             
-            <Card className="bg-white  h-60">
-                <CardContent className=" ">
-                  <div className="h-36">
-                      <img
-                          src="/Bowling.png" 
-                          alt="News image"
-                          className="w-full max-h-full object-cover"
-                        />
+            <Card style={{ width: '18rem' }} className="border border-gray-200">
+              <Card.Img variant="top" src="/Bowling.png" />
+              <Card.Body className="bg-[#CFD1CD] p-3">
+                <Card.Title>
+                  <div className="flex gap-2 text-sm md:text-lg font-semibold text-secondary">
+                    Aster Medical 
+                    <BadgeCheck className="text-blue-500 w-6 h-6"/>
                   </div>
-                  <div className="bg-gray-300 h-10">
-
-                  </div>
-                </CardContent>
+                </Card.Title>
+                <Card.Text className="text-tertiary text-xs">
+                  Jamiu Jimoh
+                </Card.Text>
+                
+              </Card.Body>
             </Card>
           </div>
         </div>

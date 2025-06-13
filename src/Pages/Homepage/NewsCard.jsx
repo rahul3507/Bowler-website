@@ -13,7 +13,7 @@ const NewsCard = ({ news }) => {
   const shortDescription = words.slice(0, 25).join(' ') + (isLongDescription ? '...' : '');
   
   return (
-    <Card className="bg-white  h-[450px]">
+    <Card className="bg-white  h-[470px]">
       <CardContent className="px-4  ">
         <div className="flex items-center gap-2 mb-3 ">
           <div className="h-6 w-6 md:h-8 md:w-8 rounded-full overflow-hidden bg-gray-200">
@@ -52,7 +52,7 @@ const NewsCard = ({ news }) => {
           <img
             src={newsImage || "/placeholder.svg"}
             alt="News image"
-            className="w-full max-h-full object-cover"
+            className="w-full max-h-72 object-cover"
           />
         </div>
         
