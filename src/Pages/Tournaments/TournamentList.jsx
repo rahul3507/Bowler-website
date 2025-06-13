@@ -60,7 +60,7 @@ export default function TournamentsList() {
       type: "Singles",
       registerBy: "Register by May 10, 2025",
       status: "cancelled",
-      cancelColor: "text-red-500",
+      
     },
     {
       id: 4,
@@ -71,7 +71,7 @@ export default function TournamentsList() {
       type: "Singles",
       registerBy: "Register by May 10, 2025",
       status: "cancelled",
-      cancelColor: "text-green-500",
+     
     },
   ]
 
