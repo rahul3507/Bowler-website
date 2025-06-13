@@ -260,6 +260,39 @@ const HomePage = () => {
             ))}
           </div>
         </div>
+
+
+        {/* Bowling Center */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl md:text-3xl font-bold text-primary">Bowling Center</h2>
+            <Button
+              asChild
+              variant="link"
+              className="bg-transparent border-none text-sm text-[#3B82F6] md:text-lg p-0"
+            >
+              <Link to="/dashboard/newsfeed" state={{ newsFeed: newsFeed }}>See All</Link>
+            </Button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+            
+            <Card className="bg-white  h-60">
+                <CardContent className=" ">
+                  <div className="h-36">
+                      <img
+                          src="/Bowling.png" 
+                          alt="News image"
+                          className="w-full max-h-full object-cover"
+                        />
+                  </div>
+                  <div className="bg-gray-300 h-10">
+
+                  </div>
+                </CardContent>
+            </Card>
+          </div>
+        </div>
+
       </div>
     </div>
   )
