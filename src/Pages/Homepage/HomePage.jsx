@@ -1,7 +1,24 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+
 import { Input } from "@/components/ui/input"
 import { Plus, Search } from "lucide-react"
+
+import PlayerCard from "./PlayerCard"
+
+const proPlayers = [
+  { name: "Jason Belmonte", image: "/player.png", level: 8, pac: [[97, 95, 93], [92, 90, 88]] },
+  { name: "Norm Duke", image: "/player.png", level: 7, pac: [[96, 94, 92], [91, 89, 87]] },
+  { name: "Walter Ray", image: "/player.png", level: 9, pac: [[98, 96, 94], [93, 91, 89]] },
+  { name: "Pete Weber", image: "/player.png", level: 6, pac: [[95, 93, 91], [90, 88, 86]] },
+  { name: "Earl Anthony", image: "/player.png", level: 8, pac: [[97, 95, 93], [92, 90, 88]] },
+  { name: "Chris Barnes", image: "/player.png", level: 7, pac: [[96, 94, 92], [91, 89, 87]] },
+  { name: "Parker Bohn", image: "/player.png", level: 9, pac: [[98, 96, 94], [93, 91, 89]] },
+  { name: "Tommy Jones", image: "/player.png", level: 6, pac: [[95, 93, 91], [90, 88, 86]] },
+  { name: "Mika Koivuniemi", image: "/player.png", level: 8, pac: [[97, 95, 93], [92, 90, 88]] },
+  { name: "Dominic Barrett", image: "/player.png", level: 7, pac: [[96, 94, 92], [91, 89, 87]] },
+  { name: "Sean Rash", image: "/player.png", level: 9, pac: [[98, 96, 94], [93, 91, 89]] },
+  { name: "Bill O'Neill", image: "/player.png", level: 6, pac: [[95, 93, 91], [90, 88, 86]] },
+]
 
 const HomePage = () => {
   return (
@@ -26,54 +43,25 @@ const HomePage = () => {
         {/* pro players */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-[#1e2d5e]">Pro Players</h2>
-            <Button variant="link" className="text-[#3b82f6] text-sm p-0">
+            <h2 className="text-xl md:text-3xl font-bold text-primary">Pro Players</h2>
+            <Button variant="link" className="bg-transparent border-none text-sm text-[#3B82F6] md:text-lg p-0">
               See All
             </Button>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            {[1, 2, 3,4].map((i) => (
-              <Card key={i} className="relative bg-white border-2 border-[#d2d5df] rounded-3xl overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-400 to-purple-400"></div>
-                <CardContent className="p-4 text-center">
-                  <div className="mb-2">
-                    <span className="text-xs text-[#878c81]">Level</span>
-                    <div className="text-3xl font-bold text-[#1e2d5e]">8</div>
-                  </div>
-                  <div className="w-20 h-20 mx-auto mb-3 rounded-lg overflow-hidden">
-                    <image
-                      src="/placeholder.svg?height=80&width=80"
-                      alt="Jason Belmonte"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="font-semibold text-[#1e2d5e] mb-2">Jason Belmonte</h3>
-                  <Button variant="outline" size="sm" className="mb-3 text-[#3b82f6] border-[#3b82f6]">
-                    <Plus className="w-3 h-3 mr-1" />
-                    Follow
-                  </Button>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div>
-                      <div className="text-[#878c81]">97 PAC</div>
-                      <div className="text-[#878c81]">97 PAC</div>
-                      <div className="text-[#878c81]">97 PAC</div>
-                    </div>
-                    <div>
-                      <div className="text-[#878c81]">97 PAC</div>
-                      <div className="text-[#878c81]">97 PAC</div>
-                      <div className="text-[#878c81]">97 PAC</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+          <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            {proPlayers.map((player, index) => (
+              <PlayerCard
+                key={index}
+                name={player.name}
+                image={player.image}
+                level={player.level}
+                pac={player.pac}
+              />
             ))}
           </div>
         </div>
       </div>
-      
     </div>
   )
 }
