@@ -8,7 +8,7 @@ import { PiRanking } from "react-icons/pi";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-import { LogOut, Newspaper, ScrollText, Trophy, Vote } from "lucide-react";
+import { LayoutGrid, LogOut, Newspaper, ScrollText, Trophy, Vote ,} from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
 
 export default function DashboardWrapper() {
@@ -17,12 +17,12 @@ export default function DashboardWrapper() {
       label: "Overview",
       href: "/admin-dashboard/overview",
       icon: (
-        <IconBrandTabler className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <LayoutGrid  className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Player List",
-      href: "/player-list",
+      label: "Amateur Player",
+      href: "/admin-dashboard/amateur-player",
       icon: (
         <ScrollText className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
