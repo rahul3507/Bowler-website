@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Users, Clock, DollarSign } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function TournamentsCard({ event, acceptEvent, cancelEvent }) {
+  const navigate = useNavigate();
+
   const viewDetailsClass =
     event.status === "new"
       ? " flex-1 bg-transparent border border-button-bg text-button-bg py-2 px-4 rounded-md"
       : " flex-1 bg-button-bg hover:bg-button-bg/90 text-white py-2 px-4 rounded-md";
+
+  const handleViewDetails = () => {
+    navigate("/dashboard/tournaments/tournament-details", { state: { event } });
+  };
 
   return (
     <div className="border border-[#d2d5df] rounded-md overflow-hidden bg-white">
@@ -17,14 +24,13 @@ export default function TournamentsCard({ event, acceptEvent, cancelEvent }) {
           )}
         </div>
 
-        
-          <div className="space-y-3 mb-4">
-            <div className="flex items-center">
-              <MapPin className="h-4 w-4 text-secondary mr-2" />
-              <span className="text-xs md:text-base text-secondary">{event.location}</span>
-            </div>
+        <div className="space-y-3 mb-4">
+          <div className="flex items-center">
+            <MapPin className="h-4 w-4 text-secondary mr-2" />
+            <span className="text-xs md:text-base text-secondary">{event.location}</span>
+          </div>
 
-            {event.status !== "new" && (
+          {event.status !== "new" && (
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 text-secondary mr-2" />
@@ -35,27 +41,30 @@ export default function TournamentsCard({ event, acceptEvent, cancelEvent }) {
                 <DollarSign className="h-4 w-4 text-secondary mr-1" />
                 <span className="text-xs md:text-base text-secondary">{event.price}</span>
               </div>
-            </div>)}
+            </div>
+          )}
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Users className="h-4 w-4 text-secondary mr-2" />
-                <span className="text-xs md:text-base text-secondary">{event.type}</span>
-              </div>
-              
-              {event.status !== "new" && (
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <Users className="h-4 w-4 text-secondary mr-2" />
+              <span className="text-xs md:text-base text-secondary">{event.type}</span>
+            </div>
+
+            {event.status !== "new" && (
               <div className="flex items-center">
                 <Clock className="h-4 w-4 text-secondary mr-1" />
                 <span className="text-xs md:text-base text-secondary">{event.registerBy}</span>
-              </div>)}
-            </div>
+              </div>
+            )}
           </div>
-       
+        </div>
 
         {event.status === "cancelled" && <div className="mb-4 text-red-500">Cancelled</div>}
 
         <div className="flex gap-3">
-          <Button className={viewDetailsClass}>View Details</Button>
+          <Button onClick={handleViewDetails} className={viewDetailsClass}>
+            View Details
+          </Button>
 
           {event.status === "new" && (
             <Button
