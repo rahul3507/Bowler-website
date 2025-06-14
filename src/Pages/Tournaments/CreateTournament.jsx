@@ -31,9 +31,9 @@ export default function CreateTournament() {
   };
 
   return (
-    <div className="w-full mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div className="w-full mx-auto bg-transparent p-8  ">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-2 md:mb-4">
         <h1 className=" text-lg md:text-2xl font-bold text-gray-800">Create New Tournament</h1>
         
       </div>
@@ -151,7 +151,7 @@ export default function CreateTournament() {
         <div className="">
           <Button
             onClick={handleSubmit}
-            className="bg-green-500 hover:bg-green-600 text-white font-medium px-8 py-3 rounded-lg transition-colors focus:ring-2 focus:ring-green-500 focus:ring-offset-2 outline-none"
+            className="bg-button-bg hover:bg-button-bg/90 text-white font-medium px-8 py-3 rounded-lg transition-colors focus:ring-2 focus:ring-green-500 focus:ring-offset-2 outline-none"
           >
             Submit
           </Button>
