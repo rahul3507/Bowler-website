@@ -32,7 +32,7 @@ const Tournaments = () => {
                   
                 >
                   <Plus size={18} className='m-auto' />
-                  Create new Team 
+                  Create new Tournament
                 </ModalTrigger>
                 <ModalBody>
                   <ModalContent>
