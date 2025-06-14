@@ -26,27 +26,27 @@ export const DashboardHeader = ({
   };
 
   return (
-    <header className="sticky m-4  top-0 z-50 flex w-full  items-center justify-between px-6 py-4 bg-button-bg dark:bg-surface transition-colors duration-200">
+    <header className="sticky m-2 md:m-4  top-0 z-50 flex w-full  items-center justify-between px-2 md:px-6 md:py-2 py-1 bg-button-bg dark:bg-surface transition-colors duration-200">
       {/* Greeting Section */}
       <div className="flex flex-col w-full  items-start gap-0.5">
-        <h1 className="font-h5-regular text-secondary dark:text-primary transition-colors duration-200">
-          {getTimeGreeting()}
+        <h1 className="font-medium text-primary text-lg md:text-2xl transition-colors duration-200">
+          {getTimeGreeting()} {userName}
         </h1>
-        <p className="font-oswald-medium text-text-secondary dark:text-text-primary transition-colors duration-200">
-          {userName}
+        <p className="text-sm md:text-base text-primary transition-colors duration-200">
+          Have a nice day
         </p>
       </div>
 
       {/* User Actions Section */}
       <div className="flex items-center justify-end w-full gap-4">
-        {/* Theme Toggle */}
+       
         
 
         {/* Notifications Button */}
         <Button
           variant="outline"
           size="icon"
-          className="relative h-12 w-12 rounded-full bg-surface dark:bg-surface-elevated border-border dark:border-border hover:bg-surface-hover dark:hover:bg-surface-hover transition-all duration-200 shadow-sm hover:shadow-md"
+          className="relative h-6 w-6 md:h-8 md:w-8 rounded-full bg-surface dark:bg-surface-elevated border-border dark:border-border hover:bg-surface-hover dark:hover:bg-surface-hover transition-all duration-200 shadow-sm hover:shadow-md"
         >
           <IoNotifications className="h-5 w-5 text-text-secondary dark:text-text-secondary" />
           <span className="sr-only">Notifications</span>
@@ -55,7 +55,7 @@ export const DashboardHeader = ({
 
         {/* User Profile Section */}
         <div className="flex items-center gap-3 group cursor-pointer hover:bg-background-secondary/50 dark:hover:bg-surface-hover/30 rounded-lg px-2 py-1 transition-all duration-200">
-          <Avatar className="h-12 w-12 ring-2 ring-border dark:ring-border group-hover:ring-border-primary dark:group-hover:ring-primary transition-all duration-200">
+          <Avatar className="h-6 w-6 md:h-8 md:w-8 ring-2 ring-border dark:ring-border group-hover:ring-border-primary dark:group-hover:ring-primary transition-all duration-200">
             <AvatarImage
               src={avatarSrc}
               alt={`${userFullName} avatar`}
@@ -67,13 +67,10 @@ export const DashboardHeader = ({
           </Avatar>
 
           <div className="flex flex-col items-start min-w-[101px]">
-            <span className="font-h6-medium text-secondary dark:text-primary transition-colors duration-200 group-hover:text-interactive dark:group-hover:text-primary-light">
-              {userFullName}
-            </span>
-
+            
             <div className="flex items-center gap-1.5">
-              <span className="font-regular-lg-regular text-text-muted dark:text-text-muted text-sm transition-colors duration-200">
-                {userRole}
+              <span className="font-regular-lg-regular text-text-muted dark:text-text-muted text-xs md:text-base text-primary transition-colors duration-200">
+                {userFullName}
               </span>
               <ChevronDownIcon className="h-3 w-3 text-text-muted dark:text-text-muted group-hover:text-interactive dark:group-hover:text-primary transition-all duration-200 group-hover:translate-y-0.5" />
             </div>
