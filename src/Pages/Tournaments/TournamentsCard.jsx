@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Users, Clock, DollarSign } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export default function TournamentsCard({ event, acceptEvent, cancelEvent }) {
+export default function TournamentsCard({ events, event, acceptEvent, cancelEvent }) {
   const navigate = useNavigate();
 
   const viewDetailsClass =
@@ -11,7 +11,14 @@ export default function TournamentsCard({ event, acceptEvent, cancelEvent }) {
       : " flex-1 bg-button-bg hover:bg-button-bg/90 text-white py-2 px-4 rounded-md";
 
   const handleViewDetails = () => {
-    navigate("/dashboard/tournaments/tournament-details", { state: { event } });
+    navigate("/dashboard/tournaments/tournament-details", { 
+      state: { 
+        event, 
+        events, 
+        acceptEvent, 
+        cancelEvent 
+      }
+    });
   };
 
   return (

@@ -144,23 +144,21 @@ export default function TournamentsList() {
 
   return (
     <div className="flex flex-col p-6 gap-2 md:gap-8">
-      <div className="  flex justify-between items-center">
-              <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200"> Tournaments</h2>
-              
-              <Modal>
-                <ModalTrigger 
-                  className='bg-button-bg  py-1 px-2 md:px-4 md:py-1.5 cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2'
-                  
-                >
-                  <Plus size={18} className='m-auto' />
-                  Create new Tournament
-                </ModalTrigger>
-                <ModalBody>
-                  <ModalContent>
-                    <div>hsd sdhfsdfnsdf fsdnhfccccccccccccj sdjfnsdddddddj</div>
-                  </ModalContent>
-                </ModalBody>
-              </Modal>
+      <div className="flex justify-between items-center">
+        <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200">Tournaments</h2>
+        <Modal>
+          <ModalTrigger
+            className="bg-button-bg py-1 px-2 md:px-4 md:py-1.5 cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2"
+          >
+            <Plus size={18} className="m-auto" />
+            Create new Tournament
+          </ModalTrigger>
+          <ModalBody>
+            <ModalContent>
+              <div>hsd sdhfsdfnsdf fsdnhfccccccccccccj sdjfnsdddddddj</div>
+            </ModalContent>
+          </ModalBody>
+        </Modal>
       </div>
       <div className="flex gap-2">
         <TabButton active={activeTab === "all"} onClick={() => setActiveTab("all")} label="All Tournament" />
@@ -280,7 +278,7 @@ export default function TournamentsList() {
         <div className="flex-1">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {filteredEvents.map((event) => (
-              <TournamentsCard key={event.id} event={event} acceptEvent={acceptEvent} cancelEvent={cancelEvent} />
+              <TournamentsCard key={event.id} events={events} event={event} acceptEvent={acceptEvent} cancelEvent={cancelEvent} />
             ))}
           </div>
 
