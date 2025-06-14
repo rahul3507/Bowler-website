@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Router, Routes, useLocation } from 'react-router-dom';
 
 import { PublicRoute } from './route-guards';
 import AuthLayout from '../layouts/AuthLayout';
@@ -11,7 +11,7 @@ import BackgroundPage from '../Pages/BackgroundPage';
 
 import Dashboard from '@/Pages/Dashboard/Dashboard';
 import HomePage from '@/Pages/Homepage/HomePage';
-import Overview from '@/Pages/Overview/Overview';
+
 import MyTeams from '@/Pages/MyTeams/MyTeams';
 import Analytics from '@/Pages/Analytics/Analytics';
 import Tournaments from '@/Pages/Tournaments/Tournaments';
@@ -26,6 +26,8 @@ import Players from '@/Pages/Homepage/Players';
 import NewsFeed from '@/Pages/Homepage/NewsFeed';
 import TournamentsList from '@/Pages/Tournaments/TournamentList';
 import TournamentDetails from '@/Pages/Tournaments/TournamentDetails';
+import DashboardWrapper from '@/Admin/AdminDashboard/DashboardWrapper';
+import Overview from '@/Admin/Overview/Overview';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -48,7 +50,7 @@ const AppRoutes = () => {
                 <Route index element={<HomePage />} />
                 <Route path='players' element={<Players/>}/>
                 <Route path='newsfeed' element={<NewsFeed/>}/>
-                <Route path="overview" element={<Overview />} />
+                
                 <Route path="myteams" element={<MyTeams />} />
                 <Route path="analytics" element={<Analytics />} />
                 <Route path="tournaments" element={<Tournaments />} >
@@ -64,6 +66,10 @@ const AppRoutes = () => {
                   <Route path='media' element={<Media  />}/>
                   <Route path='settings' element={<Settings/>}/>
                 </Route>
+              </Route>
+              <Route path="admin-dashboard" element={<DashboardWrapper/>}>
+                <Route path='overview' element={<Overview />} />
+
               </Route>
             </Route>
           </Route>

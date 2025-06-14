@@ -17,9 +17,7 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
                 location.pathname.includes('/dashboard/players'),
               location.pathname.includes('/dashboard/newsfeed'))       
       };
-    const isOverviewActive = () => {
-      return (location.pathname.includes('/dashboard/overview'))       
-      };
+    
 
     const isMyTeamsActive = () => {
       return (location.pathname.includes('/dashboard/myteams'))       
@@ -109,24 +107,7 @@ import { Calendar, CalendarRange, ChartColumn } from "lucide-react";
                     </NavLink>
                   </li>
 
-                  <li>
-                    <NavLink
-                      to="/dashboard/overview"
-                      className={() =>
-                        ` py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
-                          isOverviewActive()
-                            ? "bg-button-bg py-0 "
-                            : "bg-transparent  hover:bg-button-bg/45 "
-                        }`
-                      }
-                    >
-                     {!open ? <RxDashboard   className="w-6 h-6 m-auto"/> :  <div className="flex px-2 gap-2">
-                                                                          <RxDashboard   className="w-6 h-6"/>
-                                                                          Overview
-                                                                          </div>
-                                                                          }
-                    </NavLink>
-                  </li>
+                 
 
                   <li>
                     <NavLink
