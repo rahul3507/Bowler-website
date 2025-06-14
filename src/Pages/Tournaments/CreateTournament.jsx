@@ -2,6 +2,7 @@ import  { useState } from 'react';
 import { X, ChevronDown } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export default function CreateTournament() {
   const [formData, setFormData] = useState({
@@ -69,37 +70,24 @@ export default function CreateTournament() {
         {/* Tournament Type */}
 
         <div>
-          <label className="block text-sm md:text-lg font-medium text-gray-700 mb-2">
+            <label className="block text-sm md:text-lg font-medium text-gray-700 mb-2">
             Tournament Type
           </label>
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all bg-white text-left flex items-center justify-between"
-            >
-              <span className="text-gray-700">{formData.tournamentType}</span>
-              <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {isDropdownOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
-                {tournamentTypes.map((type) => (
-                  <button
-                    key={type}
-                    type="button"
-                    onClick={() => {
-                      handleInputChange('tournamentType', type);
-                      setIsDropdownOpen(false);
-                    }}
-                    className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg"
-                  >
-                    {type}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+            <Select>
+                <SelectTrigger className="w-full cursor-pointer">
+                    <SelectValue placeholder="Select a Type" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                    
+                    <SelectItem value="single" className="cursor-pointer">Single</SelectItem>
+                    <SelectItem value="double" className="cursor-pointer">Double</SelectItem>
+                    <SelectItem value="team" className="cursor-pointer">Team</SelectItem>
+                    <SelectItem value="mixed" className="cursor-pointer">Mixed</SelectItem>
+                    
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
         </div>
 
         {/* Registration Fee */}
