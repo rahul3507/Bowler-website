@@ -26,7 +26,7 @@ export const DashboardHeader = ({
   };
 
   return (
-    <header className="sticky m-2 md:m-4  top-0 z-50 flex w-full  items-center justify-between px-2 md:px-6 md:py-2 py-1 bg-button-bg dark:bg-surface transition-colors duration-200">
+    <header className="sticky  top-0 z-50 flex w-full  items-center justify-between px-2 md:px-6 md:py-2 py-1 bg-button-bg dark:bg-surface transition-colors duration-200">
       {/* Greeting Section */}
       <div className="flex flex-col w-full  items-start gap-0.5">
         <h1 className="font-medium text-primary text-lg md:text-2xl transition-colors duration-200">
