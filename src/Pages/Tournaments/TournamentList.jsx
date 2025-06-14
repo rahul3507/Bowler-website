@@ -3,6 +3,7 @@ import TournamentsCard from "./TournamentsCard";
 import { Button } from "@/components/ui/button";
 import { Modal, ModalBody, ModalContent, ModalTrigger } from '@/components/ui/animated-modal'
 import { Plus } from "lucide-react";
+import CreateTournament from "./CreateTournament";
 
 export default function TournamentsList() {
   const [activeTab, setActiveTab] = useState("all");
@@ -154,8 +155,8 @@ export default function TournamentsList() {
             Create new Tournament
           </ModalTrigger>
           <ModalBody>
-            <ModalContent>
-              <div>hsd sdhfsdfnsdf fsdnhfccccccccccccj sdjfnsdddddddj</div>
+            <ModalContent className='overflow-auto'>
+              <CreateTournament/>
             </ModalContent>
           </ModalBody>
         </Modal>
