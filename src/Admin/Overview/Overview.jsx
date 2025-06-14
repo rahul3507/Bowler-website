@@ -1,8 +1,11 @@
 import React from 'react'
+import { DashboardHeader } from '../components/DashboardHeader'
 
 const Overview = () => {
   return (
-    <div>Overview</div>
+    <div className='w-full'>
+      <DashboardHeader />
+    </div>
   )
 }
 

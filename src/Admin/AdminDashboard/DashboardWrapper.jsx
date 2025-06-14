@@ -24,38 +24,45 @@ export default function DashboardWrapper() {
       label: "Amateur Player",
       href: "/admin-dashboard/amateur-player",
       icon: (
-        <ScrollText className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <ScrollText className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Matchs",
-      href: "/matchs",
+      label: "Pro Player",
+      href: "/admin-dashboard/pro-player",
       icon: (
-        <Trophy className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <Trophy className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Voting",
-      href: "/voting",
+      label: "Bowling Center",
+      href: "/admin-dashboard/bowling-benter",
       icon: (
-        <Vote className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <Vote className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Fan Ranking",
-      href: "/fan-ranking",
+      label: "Manufacture",
+      href: "/admin-dashboard/manufacture",
       icon: (
         <PiRanking
           size={18}
-          className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0"
+          className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0"
         />
       ),
     },
     {
-      label: "News",
-      href: "news",
+      label: "Transaction",
+      href: "/admin-dashboard/transaction",
       icon: (
-        <Newspaper className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <Newspaper className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "Subscription",
+      href: "/admin-dashboard/subscription",
+      icon: (
+        <Newspaper className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
   ];
@@ -63,6 +70,7 @@ export default function DashboardWrapper() {
   const [open, setOpen] = useState(false);
 
   return (
+    
     <div
       className={cn(
         "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
@@ -80,7 +88,7 @@ export default function DashboardWrapper() {
             </div>
           </div>
           <div>
-            <SidebarLink
+            {/* <SidebarLink
               link={{
                 label: "Logout",
                 href: "#",
@@ -88,7 +96,7 @@ export default function DashboardWrapper() {
                   <LogOut className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
                 ),
               }}
-            />
+            /> */}
             <SidebarLink
               link={{
                 label: "John Doe",
@@ -103,9 +111,13 @@ export default function DashboardWrapper() {
           </div>
         </SidebarBody>
       </Sidebar>
-      <Outlet/>
+      <div className="w-full">
+        <Outlet/>
+      </div>
+      
       {/* <Dashboard>{children}</Dashboard> */}
     </div>
+    
   );
 }
 export const Logo = () => {

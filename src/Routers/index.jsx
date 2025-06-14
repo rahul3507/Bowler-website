@@ -28,6 +28,12 @@ import TournamentsList from '@/Pages/Tournaments/TournamentList';
 import TournamentDetails from '@/Pages/Tournaments/TournamentDetails';
 import DashboardWrapper from '@/Admin/AdminDashboard/DashboardWrapper';
 import Overview from '@/Admin/Overview/Overview';
+import Subscription from '@/Admin/Subscription/Subscription';
+import Transaction from '@/Admin/Transaction/Transaction';
+import Manufacture from '@/Admin/Manufacture/Manufacture';
+import BowlingCenter from '@/Admin/BowlingCenter/BowlingCenter';
+import ProPlayer from '@/Admin/ProPlayer/ProPlayer';
+import AmateurPlayer from '@/Admin/AmateurPlayer/AmateurPlayer';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -69,7 +75,12 @@ const AppRoutes = () => {
               </Route>
               <Route path="admin-dashboard" element={<DashboardWrapper/>}>
                 <Route path='overview' element={<Overview />} />
-
+                <Route path='amateur-player' element={<AmateurPlayer />} />
+                <Route path='pro-player' element={<ProPlayer />} />
+                <Route path='bowling-benter' element={<BowlingCenter />} />
+                <Route path='manufacture' element={<Manufacture />} />
+                <Route path='transaction' element={<Transaction />} />
+                <Route path='subscription' element={<Subscription />} />
               </Route>
             </Route>
           </Route>
