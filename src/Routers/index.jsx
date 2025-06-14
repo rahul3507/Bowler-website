@@ -24,6 +24,8 @@ import Settings from '@/Pages/Profile/Settings';
 import Media from '@/Pages/Profile/Media';
 import Players from '@/Pages/Homepage/Players';
 import NewsFeed from '@/Pages/Homepage/NewsFeed';
+import TournamentsList from '@/Pages/Tournaments/TournamentList';
+import TournamentDetails from '@/Pages/Tournaments/TournamentDetails';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -49,7 +51,11 @@ const AppRoutes = () => {
                 <Route path="overview" element={<Overview />} />
                 <Route path="myteams" element={<MyTeams />} />
                 <Route path="analytics" element={<Analytics />} />
-                <Route path="tournaments" element={<Tournaments />} />
+                <Route path="tournaments" element={<Tournaments />} >
+                  <Route index element={<TournamentsList/>} />
+                  <Route path='tournament-details' element={<TournamentDetails/>}/>
+                </Route>
+
                 <Route path="messages" element={<Messages />} />
                 <Route path='profile' element={<Profile />} >
                   <Route index element={<General />} />

@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input'
 import { Plus, Search } from 'lucide-react'
 import React from 'react'
 import TournamentsList from './TournamentList'
+import { Outlet } from 'react-router-dom'
 
 const Tournaments = () => {
   return (
@@ -23,28 +24,11 @@ const Tournaments = () => {
         </div>
       </div>
 
-      <div className="px-6 pt-4 pb-0  md:pb-4 flex justify-between items-center">
-              <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200"> Tournaments</h2>
-              
-              <Modal>
-                <ModalTrigger 
-                  className='bg-button-bg  py-1 px-2 md:px-4 md:py-1.5 cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2'
-                  
-                >
-                  <Plus size={18} className='m-auto' />
-                  Create new Tournament
-                </ModalTrigger>
-                <ModalBody>
-                  <ModalContent>
-                    <div>hsd sdhfsdfnsdf fsdnhfccccccccccccj sdjfnsdddddddj</div>
-                  </ModalContent>
-                </ModalBody>
-              </Modal>
-        </div>
+      
 
-        <div>
-          <TournamentsList/>
-        </div>
+      <div>
+          <Outlet/>
+      </div>
 
 
 

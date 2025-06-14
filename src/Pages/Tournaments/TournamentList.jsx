@@ -1,6 +1,8 @@
 import { useState } from "react";
 import TournamentsCard from "./TournamentsCard";
 import { Button } from "@/components/ui/button";
+import { Modal, ModalBody, ModalContent, ModalTrigger } from '@/components/ui/animated-modal'
+import { Plus } from "lucide-react";
 
 export default function TournamentsList() {
   const [activeTab, setActiveTab] = useState("all");
@@ -142,6 +144,24 @@ export default function TournamentsList() {
 
   return (
     <div className="flex flex-col p-6 gap-2 md:gap-8">
+      <div className="  flex justify-between items-center">
+              <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200"> Tournaments</h2>
+              
+              <Modal>
+                <ModalTrigger 
+                  className='bg-button-bg  py-1 px-2 md:px-4 md:py-1.5 cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2'
+                  
+                >
+                  <Plus size={18} className='m-auto' />
+                  Create new Tournament
+                </ModalTrigger>
+                <ModalBody>
+                  <ModalContent>
+                    <div>hsd sdhfsdfnsdf fsdnhfccccccccccccj sdjfnsdddddddj</div>
+                  </ModalContent>
+                </ModalBody>
+              </Modal>
+      </div>
       <div className="flex gap-2">
         <TabButton active={activeTab === "all"} onClick={() => setActiveTab("all")} label="All Tournament" />
         <TabButton active={activeTab === "registered"} onClick={() => setActiveTab("registered")} label="Registered" />
