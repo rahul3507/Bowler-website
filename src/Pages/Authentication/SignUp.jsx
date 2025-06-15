@@ -1,47 +1,55 @@
-import { useState } from "react"
-import { useLocation, Link } from "react-router-dom"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+
 
 export default function SignUp() {
   const location = useLocation();
-  const selectedRole = location.state?.selectedRole;
-  
+  const navigate = useNavigate();
+  const { selectedRole, badge } = location.state || {};
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     handle: "",
     email: "",
     password: "",
-  })
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    console.log("User Role:", selectedRole)
-    // Handle form submission logic here with selectedRole
-  }
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    console.log("User Role:", selectedRole);
+    console.log("Badge:", badge);
+
+    if (badge === "Premium") {
+      navigate("/payment");
+    } else {
+      navigate("/signin");
+    }
+  };
 
   // Determine if we should hide Last Name field
-  const shouldHideLastName = selectedRole === "bowling-center" || selectedRole === "manufacturer"
+  const shouldHideLastName = selectedRole === "bowling-center" || selectedRole === "manufacturer";
   
   // Determine First Name label and placeholder
   const getFirstNameConfig = () => {
     if (selectedRole === "bowling-center") {
-      return { label: "Center Name", placeholder: "Center Name" }
+      return { label: "Center Name", placeholder: "Center Name" };
     }
     if (selectedRole === "manufacturer") {
-      return { label: "Manufacturer Name", placeholder: "Manufacturer Name" }
+      return { label: "Manufacturer Name", placeholder: "Manufacturer Name" };
     }
-    return { label: "First Name", placeholder: "First Name" }
-  }
+    return { label: "First Name", placeholder: "First Name" };
+  };
 
-  const firstNameConfig = getFirstNameConfig()
+  const firstNameConfig = getFirstNameConfig();
 
   return (
     <div className="w-full max-w-md rounded-lg bg-transparent p-8 shadow-xl border">
@@ -75,7 +83,6 @@ export default function SignUp() {
               value={formData.lastName}
               onChange={handleChange}
               className="rounded-full  text-tertiary px-4 py-5"
-
             />
           </div>
         )}
@@ -142,5 +149,5 @@ export default function SignUp() {
         </Link>
       </div>
     </div>
-  )
+  );
 }

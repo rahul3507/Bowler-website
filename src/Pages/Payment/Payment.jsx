@@ -1,20 +1,24 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
-import { ArrowLeft, ChevronLeft, Info } from "lucide-react"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import { ArrowLeft, ChevronLeft, Info } from "lucide-react";
 
 export default function Payment() {
-  const [selectedPayment, setSelectedPayment] = useState("stripe")
+  const [selectedPayment, setSelectedPayment] = useState("stripe");
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white w-full flex items-center justify-center  p-6">
       <div className="max-w-6xl  ">
         {/* Header */}
         <div className="flex items-center gap-3 mb-4 md:mb-8">
-          <ArrowLeft  className="w-6 h-6 text-[#252525]" />
+          <Button onClick={() => navigate("/signup")} className="focus:bg-gray-200  hover:bg-gray-200 bg-transparent border-none">
+            <ArrowLeft className="w-6 h-6 text-[#252525]" />
+          </Button>
           <div className="w-10 h-10 bg-[#141b34] rounded-full flex items-center justify-center">
             <img src="/Bowling-logo.svg" alt="" className="w-full h-full rounded-full"/>
           </div>
@@ -33,7 +37,6 @@ export default function Payment() {
                 <span className="text-3xl md:text-6xl font-bold text-black">$120</span>
                 <div className="text-gray-400 text-sm md:text-lg">
                   <div>per year</div>
-                  
                 </div>
               </div>
             </div>
@@ -129,5 +132,5 @@ export default function Payment() {
         </div>
       </div>
     </div>
-  )
+  );
 }
