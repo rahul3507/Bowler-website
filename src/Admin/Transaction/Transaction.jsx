@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { Button } from '@/components/ui/button'
-import { Plus, User2 } from 'lucide-react'
+import { Plus, ShieldAlert, User2 } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card";
 
 import {
@@ -257,7 +257,7 @@ const Transaction = () => {
                         
                         <TableCell className="px-6 py-4 text-center min-w-[100px]">
                           <div className="flex items-center justify-center gap-2">
-                            <User2 />
+                            <ShieldAlert />
                           </div>
                         </TableCell>
                       </TableRow>
