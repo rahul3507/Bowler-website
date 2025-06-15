@@ -35,6 +35,7 @@ import BowlingCenter from '@/Admin/BowlingCenter/BowlingCenter';
 import ProPlayer from '@/Admin/ProPlayer/ProPlayer';
 import AmateurPlayer from '@/Admin/AmateurPlayer/AmateurPlayer';
 import Notifications from '@/Admin/Notifications/Notifications';
+import Payment from '@/Pages/Payment/Payment';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -52,6 +53,7 @@ const AppRoutes = () => {
               <Route index element={<SplashScreen />} />
               <Route path="selectyourrole" element={<SelectYourRole />} />
               <Route path="signup" element={<SignUp />} />
+              <Route path='payment' element={<Payment/>}/>
               <Route path="signin" element={<SignIn />} />
               <Route path="dashboard" element={<Dashboard/>}>
                 <Route index element={<HomePage />} />
