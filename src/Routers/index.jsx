@@ -75,7 +75,7 @@ const AppRoutes = () => {
                 </Route>
               </Route>
               <Route path="admin-dashboard" element={<DashboardWrapper/>}>
-                <Route path='overview' element={<Overview />} />
+                <Route index element={<Overview />} />
                 <Route path='notifications' element={<Notifications/>}/>
                 <Route path='amateur-player' element={<AmateurPlayer />} />
                 <Route path='pro-player' element={<ProPlayer />} />
