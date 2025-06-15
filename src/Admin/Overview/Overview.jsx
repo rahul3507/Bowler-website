@@ -21,6 +21,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 
 const Overview = () => {
@@ -164,6 +165,28 @@ const Overview = () => {
   { month: "Nov", earn: 1870 },
   { month: "Dec", earn: 7950 },
 ]
+const TotalStatus =[
+  {
+    title: "Total User",
+    
+    value: "1230",
+    
+  },
+  
+  {
+    title: "Total Earnings",
+    
+    value: "$1230",
+    
+  },
+  {
+    title: "Total Subscription",
+    
+    value: "1230",
+    
+  },
+  
+]
   
     const itemsPerPage = 5;
     const filteredData = Transaction; // You can add filtering logic here if needed
@@ -227,9 +250,57 @@ const Overview = () => {
           Create account
         </Button>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-2 md:gap-6">
+                    { TotalStatus.map((achievement, index) => (
+                      <Card key={index} className="border-gray-200  dark:border-gray-500 bg-transparent  cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                        <CardContent className="px-6 py-0 m-auto">
+                          <div className="flex items-center justify-between mb-4">
+                            <p className="text-lg md:text-xl font-semibold text-secondary dark:text-gray-200">{achievement.title}</p>
+                            
+                          </div>
+                          <div className="space-y-1">
+                            <p className="text-xl md:text-3xl mb-2 font-semibold md:font-bold text-primary-heading dark:text-white">{achievement.value}</p>
+                            
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                   
+                    
+          </div>
+
         <Card className="border-gray-200 dark:border-gray-500 bg-transparent cursor-pointer hover:shadow-lg transition-shadow duration-200">
             <CardHeader>
-              <CardTitle className="text-secondary dark:text-gray-300 text-sm md:text-base">Your month earns over your last 10 months</CardTitle>
+              <CardTitle >
+                <div className='w-full flex justify-between'>
+                  <div className='text-xl md:text-3xl text-secondary font-semibold'>Eargings</div>
+                  <div>
+                    <Select>
+                      <SelectTrigger className="w-40 border-none cursor-pointer">
+                        <SelectValue placeholder="Select month" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          
+                          <SelectItem value="jan" className="cursor-pointer">2024 Jan</SelectItem>
+                          <SelectItem value="feb " className="cursor-pointer">2024 Feb</SelectItem>
+                          <SelectItem value="mar" className="cursor-pointer">2024 Mar</SelectItem>
+                          <SelectItem value="apr " className="cursor-pointer">2024 Apr</SelectItem>
+                          <SelectItem value="may" className="cursor-pointer">2024 May</SelectItem>
+                          <SelectItem value="jun" className="cursor-pointer">2024 Jun</SelectItem>
+                          <SelectItem value="jul" className="cursor-pointer">2024 Jul</SelectItem>
+                          <SelectItem value="aug" className="cursor-pointer">2024 Aug</SelectItem>
+                          <SelectItem value="sep" className="cursor-pointer">2024 Sep</SelectItem>
+                          <SelectItem value="oct" className="cursor-pointer">2024 Oct</SelectItem>
+                          <SelectItem value="nov" className="cursor-pointer">2024 Nov</SelectItem>
+                          <SelectItem value="dec" className="cursor-pointer">2024 Dec</SelectItem>
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="h-80 w-full ">

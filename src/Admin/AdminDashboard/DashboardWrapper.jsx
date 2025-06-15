@@ -78,7 +78,7 @@ export default function DashboardWrapper() {
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between h-screen gap-10 bg-[#111B05] ">
+        <SidebarBody className="justify-between  h-screen gap-10 bg-[#111B05] ">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             {open ? <Logo open={open} /> : <LogoIcon />}
             <div className="mt-10 flex flex-col gap-2">
