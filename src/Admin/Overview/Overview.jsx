@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { Button } from '@/components/ui/button'
 import { Plus, ShieldAlert, User2 } from 'lucide-react'
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import {
   Table,
@@ -20,6 +20,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 
 const Overview = () => {
@@ -148,6 +149,21 @@ const Overview = () => {
         address: "london"
       }
     ];
+
+    const earning = [
+  { month: "Jan", earn: 2100 },
+  { month: "Feb", earn: 1980 },
+  { month: "Mar", earn: 2150 },
+  { month: "Apr", earn: 1870 },
+  { month: "May", earn: 1950 },
+  { month: "Jun", earn: 9100 },
+  { month: "Jul", earn: 1980 },
+  { month: "Aug", earn: 2150 },
+  { month: "Sep", earn: 6870 },
+  { month: "Oct", earn: 1950 },
+  { month: "Nov", earn: 1870 },
+  { month: "Dec", earn: 7950 },
+]
   
     const itemsPerPage = 5;
     const filteredData = Transaction; // You can add filtering logic here if needed
@@ -211,6 +227,44 @@ const Overview = () => {
           Create account
         </Button>
         </div>
+        <Card className="border-gray-200 dark:border-gray-500 bg-transparent cursor-pointer hover:shadow-lg transition-shadow duration-200">
+            <CardHeader>
+              <CardTitle className="text-secondary dark:text-gray-300 text-sm md:text-base">Your month earns over your last 10 months</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-80 w-full ">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={earning}>
+                    <XAxis 
+                      dataKey="month" 
+                      axisLine={true} 
+                      tickLine={false} 
+                      tick={{ fontSize: 12 }}
+                      className="fill-gray-600 dark:fill-gray-500"
+                    />
+                    <YAxis
+                      axisLine={true}
+                      tickLine={true}
+                      tick={{ fontSize: 12 }}
+                      domain={[0, 10000]}
+                      className="fill-gray-600 dark:fill-gray-500"
+                    />
+                    <Tooltip />
+                    <Legend className='bg-transparent'/>
+                    <Bar 
+                      dataKey="earn" 
+                      radius={[4, 4, 0, 0]} 
+                      barSize={30}
+                      className="fill-button-bg dark:fill-gray-300"
+                    />
+                    
+                                          
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
+
          <div className='overflow-x-auto'>
           <Card className="w-full rounded-xl  border-border p-0">
             <CardContent className="p-0">
