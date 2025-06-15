@@ -11,17 +11,26 @@ export default function SignIn() {
   const [formData, setFormData] = useState({
     handle: "",
     password: "",
+    isAdmin: false,
   })
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    const { name, value, type, checked } = e.target
+    setFormData((prev) => ({ 
+      ...prev, 
+      [name]: type === 'checkbox' ? checked : value 
+    }))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
-    navigate("/dashboard");
+    
+    if (formData.isAdmin) {
+      navigate("/admin-dashboard");
+    } else {
+      navigate("/dashboard");
+    }
     // Handle form submission logic here with selectedRole
   }
 
@@ -60,6 +69,20 @@ export default function SignIn() {
             className="rounded-full  text-tertiary px-4 py-5"
             required
           />
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <input
+            id="isAdmin"
+            name="isAdmin"
+            type="checkbox"
+            checked={formData.isAdmin}
+            onChange={handleChange}
+            className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+          />
+          <label htmlFor="isAdmin" className="text-primary-heading">
+            Admin?
+          </label>
         </div>
        
 

@@ -11,14 +11,17 @@ export default function TournamentsCard({ events, event, acceptEvent, cancelEven
       : " flex-1 bg-button-bg hover:bg-button-bg/90 text-white py-2 px-4 rounded-md";
 
   const handleViewDetails = () => {
-    navigate("/dashboard/tournaments/tournament-details", { 
-      state: { 
-        event, 
-        events, 
-        acceptEvent, 
-        cancelEvent 
-      }
-    });
+    navigate("/dashboard/tournaments/tournament-details",
+    //    { 
+    //   state: { 
+    //     event, 
+    //     events, 
+    //     acceptEvent, 
+    //     cancelEvent 
+    //   }
+    // }
+  );
+    console.log("clicked")
   };
 
   return (
