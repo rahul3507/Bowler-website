@@ -34,6 +34,7 @@ import Manufacture from '@/Admin/Manufacture/Manufacture';
 import BowlingCenter from '@/Admin/BowlingCenter/BowlingCenter';
 import ProPlayer from '@/Admin/ProPlayer/ProPlayer';
 import AmateurPlayer from '@/Admin/AmateurPlayer/AmateurPlayer';
+import Notifications from '@/Admin/Notifications/Notifications';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -75,6 +76,7 @@ const AppRoutes = () => {
               </Route>
               <Route path="admin-dashboard" element={<DashboardWrapper/>}>
                 <Route path='overview' element={<Overview />} />
+                <Route path='notifications' element={<Notifications/>}/>
                 <Route path='amateur-player' element={<AmateurPlayer />} />
                 <Route path='pro-player' element={<ProPlayer />} />
                 <Route path='bowling-benter' element={<BowlingCenter />} />

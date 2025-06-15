@@ -1,8 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
-import { ChevronDownIcon } from "lucide-react";
+import { Bell, ChevronDownIcon } from "lucide-react";
 import { IoNotifications } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export const DashboardHeader = ({
   userName = "Robert",
@@ -43,15 +44,16 @@ export const DashboardHeader = ({
         
 
         {/* Notifications Button */}
-        <Button
+        <Link
+          to='/admin-dashboard/notifications'
           variant="outline"
           size="icon"
-          className="relative h-6 w-6 md:h-8 md:w-8 rounded-full bg-surface dark:bg-surface-elevated border-border dark:border-border hover:bg-surface-hover dark:hover:bg-surface-hover transition-all duration-200 shadow-sm hover:shadow-md"
+          className="relative h-6 w-6 md:h-8 md:w-8 rounded-full bg-surface dark:bg-surface-elevated  border-border dark:border-border hover:bg-surface-hover dark:hover:bg-surface-hover transition-all duration-200 shadow-sm hover:shadow-md"
         >
-          <IoNotifications className="h-5 w-5 text-text-secondary dark:text-text-secondary" />
+          <Bell className="m-auto pt-2 size-8"/>
           <span className="sr-only">Notifications</span>
-          <span className="absolute -top-1 -right-1 h-3 w-3 bg-error rounded-full border-2 border-surface dark:border-surface-elevated"></span>
-        </Button>
+          <span className="absolute -top-1 -right-1 h-6 w-6 text-xs p-0.5 bg-white bg-error rounded-full border-2 border-surface dark:border-surface-elevated">12</span>
+        </Link>
 
         {/* User Profile Section */}
         <div className="flex items-center gap-3 group cursor-pointer hover:bg-background-secondary/50 dark:hover:bg-surface-hover/30 rounded-lg px-2 py-1 transition-all duration-200">
