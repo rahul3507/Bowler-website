@@ -6,7 +6,7 @@ import { IconBrandTabler } from "@tabler/icons-react";
 import { PiRanking } from "react-icons/pi";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { LayoutGrid, LogOut, Newspaper, ScrollText, Trophy, Vote } from "lucide-react";
+import { LayoutGrid, LogOut, MessageCircleMore, Newspaper, ScrollText, Trophy, Vote } from "lucide-react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 export default function DashboardWrapper() {
@@ -22,28 +22,28 @@ export default function DashboardWrapper() {
       label: "Amateur Player",
       href: "/admin-dashboard/amateur-player",
       icon: (
-        <ScrollText className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Pro Player",
       href: "/admin-dashboard/pro-player",
       icon: (
-        <Trophy className="text-white  pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <MessageCircleMore className="text-white  pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Bowling Center",
       href: "/admin-dashboard/bowling-benter",
       icon: (
-        <Vote className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Manufacture",
       href: "/admin-dashboard/manufacture",
       icon: (
-        <PiRanking
+        <MessageCircleMore
           size={18}
           className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0"
         />
@@ -53,14 +53,14 @@ export default function DashboardWrapper() {
       label: "Transaction",
       href: "/admin-dashboard/transaction",
       icon: (
-        <Newspaper className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Subscription",
       href: "/admin-dashboard/subscription",
       icon: (
-        <Newspaper className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
   ];
