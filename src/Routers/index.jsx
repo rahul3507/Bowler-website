@@ -66,7 +66,6 @@ const AppRoutes = () => {
                   <Route index element={<TournamentsList/>} />
                   <Route path='tournament-details' element={<TournamentDetails/>}/>
                 </Route>
-
                 <Route path="messages" element={<Messages />} />
                 <Route path='profile' element={<Profile />} >
                   <Route index element={<General />} />
