@@ -20,4 +20,19 @@ export default defineConfig({
   optimizeDeps: {
     include: ["swiper/react", "swiper/modules"],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-avatar', '@radix-ui/react-checkbox', '@radix-ui/react-label'],
+          icons: ['@tabler/icons-react', 'lucide-react', 'react-icons'],
+          routing: ['react-router-dom'],
+          charts: ['recharts'],
+          swiper: ['swiper', 'swiper/react', 'swiper/modules'],
+          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
+        }
+      }
+    }
+  }
 });
