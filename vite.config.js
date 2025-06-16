@@ -21,6 +21,7 @@ export default defineConfig({
     include: ["swiper/react", "swiper/modules"],
   },
   build: {
+    outDir: 'dist',
     rollupOptions: {
       output: {
         manualChunks: {
