@@ -203,7 +203,7 @@ const AppRoutes = () => {
                   </Suspense>
                 } />
                 
-                {/* <Route path='notifications' element={
+                <Route path='notifications' element={
                   <Suspense fallback={<RouteLoader />}>
                     <Notifications/>
                   </Suspense>
@@ -243,7 +243,7 @@ const AppRoutes = () => {
                   <Suspense fallback={<RouteLoader />}>
                     <Subscription />
                   </Suspense>
-                } /> */}
+                } />
               </Route>
             </Route>
           </Route>
