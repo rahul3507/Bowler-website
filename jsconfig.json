@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/": ["./src/"]
     },
     "jsx": "react-jsx",
     "allowImportingTsExtensions": false,
@@ -13,6 +13,6 @@
     "strict": false,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/*/"],
   "exclude": ["node_modules", "dist"]
 }
