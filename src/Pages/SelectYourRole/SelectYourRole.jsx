@@ -8,7 +8,7 @@ import { Card, CardContent } from "../../components/ui/card";
 import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 import toast from "react-hot-toast";
 
-export const SelectYourRole = () => {
+const SelectYourRole = () => {
   const [selectedRole, setSelectedRole] = useState(null);
   const navigate = useNavigate();
 
@@ -141,3 +141,5 @@ export const SelectYourRole = () => {
     </div>
   );
 };
+
+export default SelectYourRole;

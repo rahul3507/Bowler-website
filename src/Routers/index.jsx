@@ -11,9 +11,7 @@ import BackgroundPage from "../Pages/BackgroundPage";
 import SplashScreen from "../Pages/SplashScreen/SplashScreen";
 
 // Dynamic imports for route components
-const SelectYourRole = lazy(() =>
-  import("@/Pages/SelectYourRole/SelectYourRole")
-);
+import SelectYourRole from "../Pages/SelectYourRole/SelectYourRole";
 const SignUp = lazy(() => import("@/Pages/Authentication/SignUp"));
 const SignIn = lazy(() => import("@/Pages/Authentication/SignIn"));
 const Payment = lazy(() => import("@/Pages/Payment/Payment"));
