@@ -1,13 +1,13 @@
+/** @format */
+
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { IconBrandTabler } from "@tabler/icons-react";
-import { PiRanking } from "react-icons/pi";
-import { motion } from "motion/react";
+
 import { cn } from "@/lib/utils";
-import { LayoutGrid, LogOut, MessageCircleMore, Newspaper, ScrollText, Trophy, Vote } from "lucide-react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { LayoutGrid, MessageCircleMore } from "lucide-react";
+import { Outlet, useLocation } from "react-router-dom";
 
 export default function DashboardWrapper() {
   const links = [
@@ -84,7 +84,9 @@ export default function DashboardWrapper() {
                 <SidebarLink
                   key={idx}
                   link={link}
-                  className={location.pathname === link.href ? "bg-button-bg" : ""}
+                  className={
+                    location.pathname === link.href ? "bg-button-bg" : ""
+                  }
                 />
               ))}
             </div>
