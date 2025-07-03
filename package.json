@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "18.x"
+    "node": "22.15.0"
   },
   "scripts": {
     "dev": "vite",
@@ -20,10 +20,7 @@
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "^1.2.5",
-    "@rollup/rollup-linux-x64-gnu": "^4.9.0",
-    "@rollup/rollup-win32-x64-msvc": "^4.9.0",
-    "@rollup/rollup-darwin-x64": "^4.9.0",
-    "@rollup/rollup-darwin-arm64": "^4.9.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.44.1",
     "@tabler/icons-react": "^3.34.0",
     "@tailwindcss/vite": "^4.1.8",
     "@tanstack/react-query": "latest",
