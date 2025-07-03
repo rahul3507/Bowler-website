@@ -9,10 +9,11 @@ import BackgroundPage from "../Pages/BackgroundPage";
 
 // Keep critical components as regular imports (used immediately)
 import SplashScreen from "../Pages/SplashScreen/SplashScreen";
-import { SelectYourRole } from "@/Pages/SelectYourRole/SelectYourRole";
 
 // Dynamic imports for route components
-
+const SelectYourRole = lazy(() =>
+  import("@/Pages/SelectYourRole/SelectYourRole")
+);
 const SignUp = lazy(() => import("@/Pages/Authentication/SignUp"));
 const SignIn = lazy(() => import("@/Pages/Authentication/SignIn"));
 const Payment = lazy(() => import("@/Pages/Payment/Payment"));
@@ -308,7 +309,7 @@ const AppRoutes = () => {
                 />
 
                 <Route
-                  path="bowling-benter"
+                  path="bowling-center"
                   element={
                     <Suspense fallback={<RouteLoader />}>
                       <BowlingCenter />

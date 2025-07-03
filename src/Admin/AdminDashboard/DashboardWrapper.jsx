@@ -4,94 +4,221 @@
 
 import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-
 import { cn } from "@/lib/utils";
 import { LayoutGrid, MessageCircleMore } from "lucide-react";
-import { Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 export default function DashboardWrapper() {
-  const links = [
-    {
-      label: "Overview",
-      href: "/admin-dashboard",
-      icon: (
-        <LayoutGrid className="text-white pl-1.5 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Amateur Player",
-      href: "/admin-dashboard/amateur-player",
-      icon: (
-        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Pro Player",
-      href: "/admin-dashboard/pro-player",
-      icon: (
-        <MessageCircleMore className="text-white  pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Bowling Center",
-      href: "/admin-dashboard/bowling-benter",
-      icon: (
-        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Manufacture",
-      href: "/admin-dashboard/manufacture",
-      icon: (
-        <MessageCircleMore
-          size={18}
-          className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0"
-        />
-      ),
-    },
-    {
-      label: "Transaction",
-      href: "/admin-dashboard/transaction",
-      icon: (
-        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Subscription",
-      href: "/admin-dashboard/subscription",
-      icon: (
-        <MessageCircleMore className="text-white pl-1.5  dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-  ];
-
-  const [open, setOpen] = useState(false);
   const location = useLocation();
+  const [open, setOpen] = useState(false);
+
+  // Active state functions for each route
+  const isOverviewActive = () => {
+    return location.pathname === "/admin-dashboard";
+  };
+
+  const isAmateurPlayerActive = () => {
+    return location.pathname.includes("/admin-dashboard/amateur-player");
+  };
+
+  const isProPlayerActive = () => {
+    return location.pathname.includes("/admin-dashboard/pro-player");
+  };
+
+  const isBowlingCenterActive = () => {
+    return location.pathname.includes("/admin-dashboard/bowling-center");
+  };
+
+  const isManufactureActive = () => {
+    return location.pathname.includes("/admin-dashboard/manufacture");
+  };
+
+  const isTransactionActive = () => {
+    return location.pathname.includes("/admin-dashboard/transaction");
+  };
+
+  const isSubscriptionActive = () => {
+    return location.pathname.includes("/admin-dashboard/subscription");
+  };
 
   return (
     <div
       className={cn(
-        "rounded-md flex flex-col md:flex-row bg-white dark:bg-neutral-800 w-full flex-1 mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
+        "flex w-full flex-1 flex-col overflow-hidden rounded-md border-neutral-200 bg-white md:flex-row dark:border-neutral-700 dark:bg-neutral-800",
         "h-screen"
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between  h-screen gap-10 bg-[#111B05]">
-          <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-            {open ? <Logo open={open} /> : <LogoIcon />}
-            <div className="mt-10   flex flex-col gap-2">
-              {links.map((link, idx) => (
-                <SidebarLink
-                  key={idx}
-                  link={link}
-                  className={
-                    location.pathname === link.href ? "bg-button-bg" : ""
-                  }
-                />
-              ))}
+        <SidebarBody className="justify-between px-1 md:px-2 bg-[#111B05] text-white min-h-screen gap-10">
+          <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
+            <div className={`mb-6 mt-0 md:mt-3 ${!open ? "mx-auto" : ""}`}>
+              {open ? <Logo /> : <LogoIcon />}
+            </div>
+            <hr className="w-full text-white" />
+            <div className="mt-8 text-white flex flex-col gap-2">
+              <div>
+                <ul className="space-y-2 text-sm md:text-base">
+                  <li>
+                    <NavLink
+                      to="/admin-dashboard"
+                      className={() =>
+                        `py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isOverviewActive()
+                            ? "bg-button-bg"
+                            : "bg-transparent hover:bg-button-bg/45"
+                        }`
+                      }
+                    >
+                      {!open ? (
+                        <LayoutGrid className="w-6 h-6 m-auto" />
+                      ) : (
+                        <div className="flex px-2 gap-2">
+                          <LayoutGrid className="w-6 h-6" />
+                          Overview
+                        </div>
+                      )}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/admin-dashboard/amateur-player"
+                      className={() =>
+                        `py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isAmateurPlayerActive()
+                            ? "bg-button-bg"
+                            : "bg-transparent hover:bg-button-bg/45"
+                        }`
+                      }
+                    >
+                      {!open ? (
+                        <MessageCircleMore className="w-6 h-6 m-auto" />
+                      ) : (
+                        <div className="flex px-2 gap-2">
+                          <MessageCircleMore className="w-6 h-6" />
+                          Amateur Player
+                        </div>
+                      )}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/admin-dashboard/pro-player"
+                      className={() =>
+                        `py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isProPlayerActive()
+                            ? "bg-button-bg"
+                            : "bg-transparent hover:bg-button-bg/45"
+                        }`
+                      }
+                    >
+                      {!open ? (
+                        <MessageCircleMore className="w-6 h-6 m-auto" />
+                      ) : (
+                        <div className="flex px-2 gap-2">
+                          <MessageCircleMore className="w-6 h-6" />
+                          Pro Player
+                        </div>
+                      )}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/admin-dashboard/bowling-center"
+                      className={() =>
+                        `py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isBowlingCenterActive()
+                            ? "bg-button-bg"
+                            : "bg-transparent hover:bg-button-bg/45"
+                        }`
+                      }
+                    >
+                      {!open ? (
+                        <MessageCircleMore className="w-6 h-6 m-auto" />
+                      ) : (
+                        <div className="flex px-2 gap-2">
+                          <MessageCircleMore className="w-6 h-6" />
+                          Bowling Center
+                        </div>
+                      )}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/admin-dashboard/manufacture"
+                      className={() =>
+                        `py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isManufactureActive()
+                            ? "bg-button-bg"
+                            : "bg-transparent hover:bg-button-bg/45"
+                        }`
+                      }
+                    >
+                      {!open ? (
+                        <MessageCircleMore className="w-6 h-6 m-auto" />
+                      ) : (
+                        <div className="flex px-2 gap-2">
+                          <MessageCircleMore className="w-6 h-6" />
+                          Manufacture
+                        </div>
+                      )}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/admin-dashboard/transaction"
+                      className={() =>
+                        `py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isTransactionActive()
+                            ? "bg-button-bg"
+                            : "bg-transparent hover:bg-button-bg/45"
+                        }`
+                      }
+                    >
+                      {!open ? (
+                        <MessageCircleMore className="w-6 h-6 m-auto" />
+                      ) : (
+                        <div className="flex px-2 gap-2">
+                          <MessageCircleMore className="w-6 h-6" />
+                          Transaction
+                        </div>
+                      )}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/admin-dashboard/subscription"
+                      className={() =>
+                        `py-2 px-0 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                          isSubscriptionActive()
+                            ? "bg-button-bg"
+                            : "bg-transparent hover:bg-button-bg/45"
+                        }`
+                      }
+                    >
+                      {!open ? (
+                        <MessageCircleMore className="w-6 h-6 m-auto" />
+                      ) : (
+                        <div className="flex px-2 gap-2">
+                          <MessageCircleMore className="w-6 h-6" />
+                          Subscription
+                        </div>
+                      )}
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div>
+          <NavLink
+            to="/admin-dashboard/profile"
+            className={() =>
+              `py-0 px-2 flex font-medium transition-colors rounded-sm md:rounded-lg ${
+                location.pathname.includes("/admin-dashboard/profile")
+                  ? "bg-button-bg"
+                  : "bg-transparent hover:bg-button-bg/45"
+              }`
+            }
+          >
             <SidebarLink
               link={{
                 label: "John Doe",
@@ -103,12 +230,10 @@ export default function DashboardWrapper() {
                 ),
               }}
             />
-          </div>
+          </NavLink>
         </SidebarBody>
       </Sidebar>
-      <div className="w-full">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 }
@@ -140,15 +265,5 @@ export const LogoIcon = () => {
         <img src="/Bowling-logo.svg" alt="" />
       </div>
     </a>
-  );
-};
-
-const Dashboard = () => {
-  return (
-    <div className="flex flex-1 bg-card">
-      <div className="p-0 rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full overflow-y-auto">
-        <Outlet />
-      </div>
-    </div>
   );
 };
