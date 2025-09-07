@@ -1,7 +1,14 @@
+/** @format */
+
 import { useState } from "react";
 import TournamentsCard from "./TournamentsCard";
 import { Button } from "@/components/ui/button";
-import { Modal, ModalBody, ModalContent, ModalTrigger } from '@/components/ui/animated-modal'
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalTrigger,
+} from "@/components/ui/animated-modal";
 import { Plus } from "lucide-react";
 import CreateTournament from "./CreateTournament";
 
@@ -81,7 +88,11 @@ export default function TournamentsList() {
     setEvents(
       events.map((event) =>
         event.id === eventId && event.status === "new"
-          ? { ...event, status: "active", registerBy: `Register by ${formatDate(new Date())}` }
+          ? {
+              ...event,
+              status: "active",
+              registerBy: `Register by ${formatDate(new Date())}`,
+            }
           : event
       )
     );
@@ -146,33 +157,49 @@ export default function TournamentsList() {
   return (
     <div className="flex flex-col p-6 gap-2 md:gap-8">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl md:text-2xl font-bold text-primary dark:text-gray-200">Tournaments</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-primary">
+          Tournaments
+        </h2>
         <Modal>
-          <ModalTrigger
-            className="bg-button-bg py-1 px-2 md:px-4 md:py-1.5 cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2"
-          >
+          <ModalTrigger className="bg-button-bg py-1 px-2 md:px-4 md:py-1.5 cursor-pointer flex text-base md:text-lg hover:bg-button-bg/90 text-button-text gap-2">
             <Plus size={18} className="m-auto" />
             Create new Tournament
           </ModalTrigger>
           <ModalBody>
-            <ModalContent className='overflow-auto'>
-              <CreateTournament/>
+            <ModalContent className="overflow-auto bg-white">
+              <CreateTournament />
             </ModalContent>
           </ModalBody>
         </Modal>
       </div>
       <div className="flex gap-2">
-        <TabButton active={activeTab === "all"} onClick={() => setActiveTab("all")} label="All Tournament" />
-        <TabButton active={activeTab === "registered"} onClick={() => setActiveTab("registered")} label="Registered" />
-        <TabButton active={activeTab === "cancelled"} onClick={() => setActiveTab("cancelled")} label="Cancelled" />
+        <TabButton
+          active={activeTab === "all"}
+          onClick={() => setActiveTab("all")}
+          label="All Tournament"
+        />
+        <TabButton
+          active={activeTab === "registered"}
+          onClick={() => setActiveTab("registered")}
+          label="Registered"
+        />
+        <TabButton
+          active={activeTab === "cancelled"}
+          onClick={() => setActiveTab("cancelled")}
+          label="Cancelled"
+        />
       </div>
       <div className="flex flex-col md:flex-row gap-6">
         {/* Filters Panel */}
         <div className="w-full md:w-[300px] border border-[#d2d5df] rounded-md p-5">
-          <h3 className="text-base md:text-xl font-bold text-primary mb-4">Filters</h3>
+          <h3 className="text-base md:text-xl font-bold text-primary mb-4">
+            Filters
+          </h3>
 
           <div className="mb-6">
-            <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">Content Type</h4>
+            <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">
+              Content Type
+            </h4>
             <div className="space-y-2">
               <CheckboxItem
                 id="singles"
@@ -208,7 +235,9 @@ export default function TournamentsList() {
           </div>
 
           <div className="mb-6">
-            <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">Access Level</h4>
+            <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">
+              Access Level
+            </h4>
             <div className="space-y-2">
               <CheckboxItem
                 id="any"
@@ -227,7 +256,9 @@ export default function TournamentsList() {
 
           <div className="mb-6">
             <div className="flex justify-between mb-1">
-              <h4 className="text-secondary text-sm md:text-lg font-medium">Duration</h4>
+              <h4 className="text-secondary text-sm md:text-lg font-medium">
+                Duration
+              </h4>
               <span className="text-sm text-secondary">2-60+ min</span>
             </div>
             <input
@@ -241,7 +272,9 @@ export default function TournamentsList() {
           </div>
 
           <div className="mb-6">
-            <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">Upload Date</h4>
+            <h4 className="text-secondary text-sm md:text-lg font-medium mb-3">
+              Upload Date
+            </h4>
             <div className="space-y-2">
               <CheckboxItem
                 id="beginner"
@@ -265,7 +298,9 @@ export default function TournamentsList() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <Button className="bg-[#8bc342] hover:bg-[#7ab33b] text-white py-2 px-4 rounded-md">Apply Filters</Button>
+            <Button className="bg-[#8bc342] hover:bg-[#7ab33b] text-white py-2 px-4 rounded-md">
+              Apply Filters
+            </Button>
             <Button
               onClick={resetFilters}
               className="text-primary bg-transparent py-2 px-4 rounded-md border border-[#d2d5df] hover:bg-gray-100"
@@ -279,12 +314,20 @@ export default function TournamentsList() {
         <div className="flex-1">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {filteredEvents.map((event) => (
-              <TournamentsCard key={event.id} events={events} event={event} acceptEvent={acceptEvent} cancelEvent={cancelEvent} />
+              <TournamentsCard
+                key={event.id}
+                events={events}
+                event={event}
+                acceptEvent={acceptEvent}
+                cancelEvent={cancelEvent}
+              />
             ))}
           </div>
 
           <div className="flex justify-center mt-8">
-            <button className="bg-[#8bc342] hover:bg-[#7ab33b] text-white py-2 px-8 rounded-md">Load More</button>
+            <button className="bg-[#8bc342] hover:bg-[#7ab33b] text-white py-2 px-8 rounded-md">
+              Load More
+            </button>
           </div>
         </div>
       </div>
@@ -314,7 +357,9 @@ function TabButton({ active, onClick, label }) {
     <button
       onClick={onClick}
       className={`px-5 py-2 rounded-sm text-xs md:text-sm font-medium hover:cursor-pointer border border-gray-200 ${
-        active ? "bg-button-bg text-white" : "bg-transparent text-secondary hover:bg-button-bg/90 "
+        active
+          ? "bg-button-bg text-white"
+          : "bg-transparent text-secondary hover:bg-button-bg/90 "
       }`}
     >
       {label}

@@ -1,6 +1,8 @@
-import { MessageCircle } from 'lucide-react'
-import React from 'react'
-import { LuMessageCircleMore } from 'react-icons/lu'
+/** @format */
+
+import { MessageCircle } from "lucide-react";
+import React from "react";
+import { LuMessageCircleMore } from "react-icons/lu";
 
 function TeamCard({ name, members, time, img }) {
   return (
@@ -8,10 +10,16 @@ function TeamCard({ name, members, time, img }) {
       <div className="flex items-center gap-4">
         <img src={img} alt={name} className="w-12 h-12 rounded-full" />
         <div>
-          <h3 className="font-bold text-base md:text-xl lg:text-2xl dark:text-gray-200 text-primary">{name}</h3>
+          <h3 className="font-bold text-base md:text-xl lg:text-2xl  text-primary">
+            {name}
+          </h3>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span  className="text-blue-500 dark:text-blue-300  text-xs md:text-base">{members} Members</span>
-            <span className='text-secondary dark:text-gray-300 text-xs md:text-base'>Created {time}</span>
+            <span className="text-blue-500 dark:text-blue-300  text-xs md:text-base">
+              {members} Members
+            </span>
+            <span className="text-secondary  text-xs md:text-base">
+              Created {time}
+            </span>
           </div>
         </div>
       </div>
@@ -19,7 +27,7 @@ function TeamCard({ name, members, time, img }) {
         <LuMessageCircleMore size={20} className="text-primary" />
       </button>
     </div>
-  )
+  );
 }
 
-export default TeamCard
+export default TeamCard;

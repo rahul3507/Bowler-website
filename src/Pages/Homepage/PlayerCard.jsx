@@ -1,12 +1,12 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
+/** @format */
 
-
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
 
 const PlayerCard = ({ name, image, level, pac }) => {
   return (
-    <Card className="relative bg-transparent border-2 border-gray-200 rounded-3xl w-72 h-92 overflow-hidden">
+    <Card className="relative bg-white border-2 border-gray-200 rounded-3xl w-72 h-92 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-400 to-purple-400"></div>
       <CardContent className="p-1 text-center">
         <div className="">
@@ -24,7 +24,11 @@ const PlayerCard = ({ name, image, level, pac }) => {
         </div>
         <div className="flex w-full justify-between">
           <h3 className="font-semibold text-[#1e2d5e] mb-2">{name}</h3>
-          <Button variant="outline" size="sm" className="mb-3 text-[#3b82f6] border-none">
+          <Button
+            variant="outline"
+            size="sm"
+            className="mb-3 text-[#3b82f6] border-none"
+          >
             <Plus className="w-3 h-3 mr-1" />
             Follow
           </Button>
@@ -32,18 +36,22 @@ const PlayerCard = ({ name, image, level, pac }) => {
         <div className="grid grid-cols-2 gap-2 text-xs">
           <div>
             {pac[0].map((value, index) => (
-              <div key={index} className="text-[#878c81]">{value} PAC</div>
+              <div key={index} className="text-[#878c81]">
+                {value} PAC
+              </div>
             ))}
           </div>
           <div>
             {pac[1].map((value, index) => (
-              <div key={index} className="text-[#878c81]">{value} PAC</div>
+              <div key={index} className="text-[#878c81]">
+                {value} PAC
+              </div>
             ))}
           </div>
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default PlayerCard
+export default PlayerCard;

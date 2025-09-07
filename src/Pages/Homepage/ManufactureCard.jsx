@@ -1,15 +1,13 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
+/** @format */
+
+import React from "react";
+import { Card } from "react-bootstrap";
 
 const ManufactureCard = ({ image, title }) => {
   return (
-    <Card className="border border-gray-200">
+    <Card className="border border-gray-200 bg-white">
       <div className="w-24 h-24 mx-auto mt-3 rounded-full overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover"
-        />
+        <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
       <Card.Body className="p-3">
         <Card.Title>
@@ -19,7 +17,7 @@ const ManufactureCard = ({ image, title }) => {
         </Card.Title>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default ManufactureCard
+export default ManufactureCard;
